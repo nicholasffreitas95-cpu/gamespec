@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
 </head>
 <body id="top" class="logged-out">
   <div class="glow glow-1"></div>
@@ -19,7 +19,6 @@
     <div class="nav-links">
       <a href="#top">Início</a>
       <a href="#tipsSection">Dicas de Hardware</a>
-      <a href="#newsSection" id="navNews" hidden>📰 Notícias</a>
       <a href="#premiumSection">Premium</a>
       <a href="#adminSection" id="navDashboard" hidden>Dashboard</a>
     </div>
@@ -93,7 +92,6 @@
     <section id="newsSection" class="content-section" hidden>
       <div class="section-head">
         <h2>📰 Últimas notícias no mundo do hardware</h2>
-        <span class="plan-badge gold">EXCLUSIVO PREMIUM</span>
       </div>
       <p class="section-sub" id="newsStatus"></p>
       <div id="newsGrid" class="news-grid"></div>
@@ -170,6 +168,8 @@
   <footer>
     <p>⚠️ Os valores são estimativas baseadas em benchmarks médios. O desempenho real pode variar conforme drivers, temperatura e configurações individuais.</p>
   </footer>
+
+  <a href="#newsSection" id="newsFab" class="news-fab" hidden title="Notícias do mundo do hardware">📰</a>
 
   <!-- Modal de autenticação -->
   <div class="modal-overlay" id="authModal" hidden>
@@ -257,9 +257,9 @@
     </div>
   </div>
 
-  <script src="js/data.js?v=10"></script>
-  <script src="js/auth.js?v=10"></script>
-  <script src="js/app.js?v=10"></script>
-  <script src="js/news.js?v=10"></script>
+  <script src="js/data.js?v=11"></script>
+  <script src="js/auth.js?v=11"></script>
+  <script src="js/app.js?v=11"></script>
+  <script src="js/news.js?v=11"></script>
 </body>
 </html>

@@ -310,7 +310,7 @@ function updateAuthUI() {
   const dashLink = document.getElementById("navDashboard");
   const adminSection = document.getElementById("adminSection");
   const subBtn = document.getElementById("subscribeBtn");
-  const newsLink = document.getElementById("navNews");
+  const newsLink = document.getElementById("newsFab");
   const newsSection = document.getElementById("newsSection");
 
   // Sem sessão: o site inteiro fica bloqueado atrás da tela de login
