@@ -2,8 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a0e17">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>GameSpec — Descubra o desempenho do seu PC nos seus jogos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,21 +18,26 @@
 
   <nav class="topnav">
     <a href="#top" class="brand">Game<span>Spec</span></a>
-    <div class="nav-links">
-      <a href="#top">Início</a>
-      <a href="#tipsSection">Dicas de Hardware</a>
-      <a href="#premiumSection">Premium</a>
-      <a href="#adminSection" id="navDashboard" hidden>Dashboard</a>
-    </div>
-    <div class="auth-area">
-      <span id="planBadge" class="plan-badge" hidden></span>
-      <button id="loginOpenBtn" class="btn btn-outline">Entrar / Criar conta</button>
-      <div id="userChip" class="user-chip" hidden>
-        <span class="avatar" id="avatarLetter"></span>
-        <span id="userNameLabel"></span>
-        <button id="logoutBtn" class="btn btn-ghost">Sair</button>
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-links">
+        <a href="#top">Início</a>
+        <a href="#tipsSection">Dicas de Hardware</a>
+        <a href="#premiumSection">Premium</a>
+        <a href="#adminSection" id="navDashboard" hidden>Dashboard</a>
+      </div>
+      <div class="auth-area">
+        <span id="planBadge" class="plan-badge" hidden></span>
+        <button id="loginOpenBtn" class="btn btn-outline">Entrar / Criar conta</button>
+        <div id="userChip" class="user-chip" hidden>
+          <span class="avatar" id="avatarLetter"></span>
+          <span id="userNameLabel"></span>
+          <button id="logoutBtn" class="btn btn-ghost">Sair</button>
+        </div>
       </div>
     </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu de navegação">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <header class="hero">

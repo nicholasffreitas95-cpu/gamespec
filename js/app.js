@@ -238,4 +238,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderTips();
   window.addEventListener("gs-auth-changed", renderTips);
+
+  /* ── Menu mobile ── */
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const navMenu = document.getElementById("navMenu");
+  if (hamburgerBtn && navMenu) {
+    const closeMenu = () => {
+      navMenu.classList.remove("open");
+      hamburgerBtn.classList.remove("active");
+      document.body.classList.remove("menu-open");
+    };
+    hamburgerBtn.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("open");
+      hamburgerBtn.classList.toggle("active", isOpen);
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+    navMenu.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", closeMenu)
+    );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
 });
