@@ -46,7 +46,8 @@
     <p>Informe seu hardware e descubra em qual preset — Baixo, Médio, Alto ou Ultra — seus jogos favoritos rodam com fluidez.</p>
   </header>
 
-  <main>
+  <main class="main-layout">
+    <div class="main-content">
     <section class="form-card">
       <h2>Suas especificações</h2>
       <div class="form-grid">
@@ -162,6 +163,12 @@
 
       <button id="clearDataBtn" class="btn btn-danger">Limpar todos os dados locais</button>
     </section>
+    </div>
+
+    <aside class="sidebar" id="adSidebar" hidden>
+      <span class="ad-label">Publicidade</span>
+      <div id="propeller-ad"></div>
+    </aside>
   </main>
 
   <footer>
@@ -256,9 +263,19 @@
     </div>
   </div>
 
-  <script src="js/data.js?v=11"></script>
-  <script src="js/auth.js?v=11"></script>
-  <script src="js/app.js?v=11"></script>
-  <script src="js/news.js?v=11"></script>
+  <script src="js/data.js?v=12"></script>
+  <script src="js/auth.js?v=12"></script>
+  <script src="js/app.js?v=12"></script>
+  <script src="js/news.js?v=12"></script>
+
+  <!-- ============================================================
+       PROPELLERADS — substitua pelo seu código real
+       1. Crie conta em https://propellerads.com
+       2. Crie uma zona "Display Banner" responsiva
+       3. Cole o script abaixo (substituindo este bloco)
+       ============================================================ -->
+  <!--
+  <script src="https://propellerads.com/tag/SEU_PUBLISHER_ID.js" async></script>
+  -->
 </body>
 </html>
