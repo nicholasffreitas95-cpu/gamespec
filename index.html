@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0e17">
+  <title>GameSpec — Descubra o desempenho do seu PC nos seus jogos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=6">
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <header class="hero">
+    <span class="chip">⚡ Estimador de desempenho para PC</span>
+    <h1>Game<span>Spec</span></h1>
+    <p>Informe seu hardware e descubra em qual preset — Baixo, Médio, Alto ou Ultra — seus jogos favoritos rodam com fluidez.</p>
+  </header>
+
+  <main>
+    <section class="form-card">
+      <h2>Suas especificações</h2>
+      <div class="form-grid">
+        <label>
+          Processador (CPU)
+          <select id="cpuSelect"></select>
+        </label>
+        <label>
+          Placa de vídeo (GPU)
+          <select id="gpuSelect"></select>
+        </label>
+        <label>
+          Memória RAM
+          <select id="ramSelect"></select>
+        </label>
+        <label>
+          Resolução
+          <select id="resSelect"></select>
+        </label>
+        <label>
+          Jogo
+          <select id="gameSelect"></select>
+        </label>
+        <label>
+          Upscaling (DLSS / FSR)
+          <select id="upscaleSelect"></select>
+        </label>
+      </div>
+      <button id="analyzeBtn">Analisar desempenho</button>
+    </section>
+
+    <section id="results" hidden>
+      <div class="summary">
+        <h2 id="gameSummary"></h2>
+        <p id="hwSummary"></p>
+      </div>
+
+      <div id="presetGrid" class="preset-grid"></div>
+
+      <p id="verdict" class="verdict"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>⚠️ Os valores são estimativas baseadas em benchmarks médios. O desempenho real pode variar conforme drivers, temperatura e configurações individuais.</p>
+  </footer>
+
+  <script src="js/data.js?v=5"></script>
+  <script src="js/app.js?v=5"></script>
+</body>
+</html>
