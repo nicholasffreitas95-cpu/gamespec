@@ -88,6 +88,15 @@ function getSelected(list, idProp, selectId) {
   return list.find((item) => String(item[idProp]) === value);
 }
 
+function getBlockedSelections(gpu, res) {
+  const blocked = [];
+  if (!AuthGuard.isPremium()) {
+    if (gpu.premium) blocked.push(`a placa ${gpu.name}`);
+    if (res.premium) blocked.push(`a resolução ${res.name}`);
+  }
+  return blocked;
+}
+
 function renderResults(scrollToView = false) {
   const cpu = getSelected(CPUS, "id", "cpuSelect");
   const gpu = getSelected(GPUS, "id", "gpuSelect");
@@ -95,6 +104,22 @@ function renderResults(scrollToView = false) {
   const res = getSelected(RESOLUTIONS, "id", "resSelect");
   const game = getSelected(GAMES, "id", "gameSelect");
   const upscale = parseFloat(document.getElementById("upscaleSelect").value);
+
+  // Conteúdo exclusivo do plano Premium
+  if (AuthGuard.isLoggedIn()) {
+    const blocked = getBlockedSelections(gpu, res);
+    if (blocked.length) {
+      const msg =
+        `Conteúdo Premium: ${blocked.join(" e ")}. ` +
+        "Assine por R$ 19,90/mês para desbloquear.";
+      AuthGuard.setGateWarning(msg);
+      document.getElementById("results").hidden = true;
+      if (scrollToView) AuthGuard.openPay(msg);
+      return;
+    }
+  }
+
+  if (!window.AuthGuard || !AuthGuard.requestAnalysis()) return;
 
   const results = estimateFps(cpu, gpu, ram, res, game, upscale);
   const native = estimateFps(cpu, gpu, ram, res, game, 1.0);
@@ -165,13 +190,44 @@ function renderResults(scrollToView = false) {
   if (scrollToView) {
     document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
   }
+  AuthGuard.logEvent("Análise", game.name);
+}
+
+function renderTips() {
+  const grid = document.getElementById("tipsGrid");
+  grid.innerHTML = "";
+
+  for (const tip of TIPS) {
+    const unlocked = !tip.premium || AuthGuard.isPremium();
+    const card = document.createElement("article");
+    card.className = "tip-card" + (unlocked ? "" : " locked");
+
+    const h3 = document.createElement("h3");
+    h3.textContent = tip.title;
+    const p = document.createElement("p");
+    p.textContent = tip.text;
+
+    card.append(h3, p);
+
+    if (!unlocked) {
+      card.classList.add("locked");
+      p.classList.add("blur-text");
+      const overlay = document.createElement("div");
+      overlay.className = "tip-lock";
+      overlay.innerHTML = '<span>🔒 Premium</span>';
+      overlay.addEventListener("click", () => AuthGuard.openPay());
+      card.appendChild(overlay);
+    }
+
+    grid.appendChild(card);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   populateSelect("cpuSelect", CPUS, "id", (c) => c.name);
-  populateSelect("gpuSelect", GPUS, "id", (g) => g.name);
+  populateSelect("gpuSelect", GPUS, "id", (g) => g.name + (g.premium ? " 🔒" : ""));
   populateSelect("ramSelect", RAM_OPTIONS, "value", (r) => r.label);
-  populateSelect("resSelect", RESOLUTIONS, "id", (r) => r.name);
+  populateSelect("resSelect", RESOLUTIONS, "id", (r) => r.name + (r.premium ? " 🔒" : ""));
   populateSelect("gameSelect", GAMES, "id", (g) => `${g.name} — ${g.genre}`);
   populateSelect("upscaleSelect", UPSCALING_OPTIONS, "value", (u) => u.label);
 
@@ -179,4 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("select").forEach((s) =>
     s.addEventListener("change", () => renderResults(false))
   );
+
+  renderTips();
+  window.addEventListener("gs-auth-changed", renderTips);
 });

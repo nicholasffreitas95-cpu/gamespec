@@ -86,15 +86,15 @@ const GPUS = [
   { id: "rtx3060ti", name: "NVIDIA RTX 3060 Ti", score: 85, vram: 8, group: "NVIDIA — RTX 20 / 30" },
   { id: "rtx3070", name: "NVIDIA RTX 3070", score: 100, vram: 8, group: "NVIDIA — RTX 20 / 30" },
   { id: "rtx3080", name: "NVIDIA RTX 3080", score: 130, vram: 10, group: "NVIDIA — RTX 20 / 30" },
-  { id: "rtx3090", name: "NVIDIA RTX 3090", score: 145, vram: 24, group: "NVIDIA — RTX 20 / 30" },
+  { id: "rtx3090", name: "NVIDIA RTX 3090", score: 145, vram: 24, group: "NVIDIA — RTX 20 / 30", premium: true },
 
   { id: "rtx4060", name: "NVIDIA RTX 4060", score: 82, vram: 8, group: "NVIDIA — RTX 40" },
   { id: "rtx4060ti-8", name: "NVIDIA RTX 4060 Ti 8GB", score: 94, vram: 8, group: "NVIDIA — RTX 40" },
   { id: "rtx4060ti-16", name: "NVIDIA RTX 4060 Ti 16GB", score: 96, vram: 16, group: "NVIDIA — RTX 40" },
   { id: "rtx4070", name: "NVIDIA RTX 4070", score: 118, vram: 12, group: "NVIDIA — RTX 40" },
   { id: "rtx4070ti", name: "NVIDIA RTX 4070 Ti", score: 140, vram: 12, group: "NVIDIA — RTX 40" },
-  { id: "rtx4080", name: "NVIDIA RTX 4080", score: 175, vram: 16, group: "NVIDIA — RTX 40" },
-  { id: "rtx4090", name: "NVIDIA RTX 4090", score: 260, vram: 24, group: "NVIDIA — RTX 40" },
+  { id: "rtx4080", name: "NVIDIA RTX 4080", score: 175, vram: 16, group: "NVIDIA — RTX 40", premium: true },
+  { id: "rtx4090", name: "NVIDIA RTX 4090", score: 260, vram: 24, group: "NVIDIA — RTX 40", premium: true },
 
   { id: "r7-360", name: "AMD Radeon R7 360", score: 13, vram: 2, group: "AMD — Antigas (R7 / R9)" },
   { id: "rx460", name: "AMD RX 460", score: 15, vram: 2, group: "AMD — Antigas (R7 / R9)" },
@@ -122,8 +122,8 @@ const GPUS = [
   { id: "rx6900xt", name: "AMD RX 6900 XT", score: 132, vram: 16, group: "AMD — RX 6000 / 7000" },
   { id: "rx7600", name: "AMD RX 7600", score: 72, vram: 8, group: "AMD — RX 6000 / 7000" },
   { id: "rx7800xt", name: "AMD RX 7800 XT", score: 120, vram: 16, group: "AMD — RX 6000 / 7000" },
-  { id: "rx7900xt", name: "AMD RX 7900 XT", score: 165, vram: 20, group: "AMD — RX 6000 / 7000" },
-  { id: "rx7900xtx", name: "AMD RX 7900 XTX", score: 200, vram: 24, group: "AMD — RX 6000 / 7000" },
+  { id: "rx7900xt", name: "AMD RX 7900 XT", score: 165, vram: 20, group: "AMD — RX 6000 / 7000", premium: true },
+  { id: "rx7900xtx", name: "AMD RX 7900 XTX", score: 200, vram: 24, group: "AMD — RX 6000 / 7000", premium: true },
 
   { id: "arc-a310", name: "Intel Arc A310", score: 20, vram: 4, group: "Intel Arc" },
   { id: "arc-a380", name: "Intel Arc A380", score: 26, vram: 6, group: "Intel Arc" },
@@ -180,8 +180,8 @@ const GAMES = [
 
 const RESOLUTIONS = [
   { id: "1080p", name: "Full HD (1920x1080)", mult: 1.0, vramMult: 1.0 },
-  { id: "1440p", name: "QHD (2560x1440)", mult: 1.75, vramMult: 1.35 },
-  { id: "4k", name: "4K (3840x2160)", mult: 3.6, vramMult: 2.0 }
+  { id: "1440p", name: "QHD (2560x1440)", mult: 1.75, vramMult: 1.35, premium: true },
+  { id: "4k", name: "4K (3840x2160)", mult: 3.6, vramMult: 2.0, premium: true }
 ];
 
 const RAM_OPTIONS = [
@@ -198,4 +198,20 @@ const UPSCALING_OPTIONS = [
   { value: 1.5, label: "Quality (~+50% FPS)" },
   { value: 1.75, label: "Balanced (~+75% FPS)" },
   { value: 2.0, label: "Performance (~+100% FPS)" }
+];
+
+// premium: true = visível somente para assinantes
+const TIPS = [
+  { premium: false, title: "🎮 GPU primeiro, sempre",
+    text: "Para jogos, a placa de vídeo influencia 2 a 3 vezes mais que o processador. Se o orçamento é limitado, priorize a melhor GPU possível dentro do seu valor." },
+  { premium: false, title: "🧠 16 GB de RAM é o mínimo hoje",
+    text: "Jogos modernos como Cyberpunk 2077 e Hogwarts Legacy consomem facilmente mais de 12 GB com o sistema aberto. Com 8 GB você terá travamentos mesmo com hardware bom." },
+  { premium: false, title: "💾 Instale os jogos em SSD NVMe",
+    text: "Além do carregamento muito mais rápido, jogos em mundo aberto fazem streaming de texturas direto do disco — em HD, isso causa pop-in e engasgos constantes." },
+  { premium: true, title: "⚡ Undervolt e curva de fan inteligente",
+    text: "Reduzir a tensão da GPU/CPU em 5-10% mantém os mesmos clocks com menos calor, permitindo boost sustentado por mais tempo. Ferramentas: MSI Afterburner (GPU) e Curve Optimizer (Ryzen)." },
+  { premium: true, title: "🔧 Ative Resizable BAR (ReBAR/SAM)",
+    text: "Permite à CPU acessar toda a VRAM de uma vez. Em jogos como Horizon e Forza, ganhos de 5-15%. Ative na BIOS (Above 4G Decoding + ReBAR) — placas RX 6000/7000 chamam de Smart Access Memory." },
+  { premium: true, title: "🖥️ Drivers: limpeza completa ao trocar de GPU",
+    text: "Ao migrar NVIDIA→AMD (ou o contrário), use o DDU (Display Driver Uninstaller) em modo seguro. Restos de driver antigo causam queda de desempenho, tela preta e crashes aleatórios." }
 ];

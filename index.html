@@ -8,11 +8,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="stylesheet" href="css/styles.css?v=9">
 </head>
-<body>
+<body id="top" class="logged-out">
   <div class="glow glow-1"></div>
   <div class="glow glow-2"></div>
+
+  <nav class="topnav">
+    <a href="#top" class="brand">Game<span>Spec</span></a>
+    <div class="nav-links">
+      <a href="#top">Início</a>
+      <a href="#tipsSection">Dicas de Hardware</a>
+      <a href="#premiumSection">Premium</a>
+      <a href="#adminSection" id="navDashboard" hidden>Dashboard</a>
+    </div>
+    <div class="auth-area">
+      <span id="planBadge" class="plan-badge" hidden></span>
+      <button id="loginOpenBtn" class="btn btn-outline">Entrar / Criar conta</button>
+      <div id="userChip" class="user-chip" hidden>
+        <span class="avatar" id="avatarLetter"></span>
+        <span id="userNameLabel"></span>
+        <button id="logoutBtn" class="btn btn-ghost">Sair</button>
+      </div>
+    </div>
+  </nav>
 
   <header class="hero">
     <span class="chip">⚡ Estimador de desempenho para PC</span>
@@ -50,6 +69,7 @@
         </label>
       </div>
       <button id="analyzeBtn">Analisar desempenho</button>
+      <p id="quotaInfo" class="quota-info"></p>
     </section>
 
     <section id="results" hidden>
@@ -62,13 +82,173 @@
 
       <p id="verdict" class="verdict"></p>
     </section>
+
+    <section id="tipsSection" class="content-section">
+      <h2>Dicas de Hardware</h2>
+      <p class="section-sub">Guia rápido para escolher e otimizar seus componentes.</p>
+      <div id="tipsGrid" class="tips-grid"></div>
+    </section>
+
+    <section id="premiumSection" class="content-section">
+      <div class="price-card">
+        <span class="chip">⭐ Plano Premium</span>
+        <h2>Desbloqueie todo o potencial do GameSpec</h2>
+        <ul class="benefits">
+          <li>✅ Análises ilimitadas de jogos</li>
+          <li>✅ Todas as dicas avançadas de hardware e otimização</li>
+          <li>✅ Comparativos detalhados entre componentes</li>
+          <li>✅ Suporte prioritário para dúvidas de upgrade</li>
+        </ul>
+        <div class="price">
+          <span class="currency">R$</span>
+          <span class="value">19,90</span>
+          <span class="period">/mês</span>
+        </div>
+        <button id="subscribeBtn" class="btn btn-gradient">Assinar Premium</button>
+        <p class="demo-note">Ambiente de demonstração — nenhum valor é cobrado.</p>
+      </div>
+    </section>
+
+    <section id="adminSection" class="content-section" hidden>
+      <h2>📊 Dashboard Administrativo</h2>
+      <p class="section-sub">Visão geral dos acessos e assinaturas do GameSpec.</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="statUsers">0</span>
+          <span class="stat-label">Usuários cadastrados</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statPremium">0</span>
+          <span class="stat-label">Assinantes premium</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statRevenue">R$ 0,00</span>
+          <span class="stat-label">Receita mensal estimada</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statToday">0</span>
+          <span class="stat-label">Análises realizadas</span>
+        </div>
+      </div>
+
+      <div class="dash-tables">
+        <div class="table-wrap">
+          <h3>Usuários</h3>
+          <table class="data-table">
+            <thead>
+              <tr><th>Usuário</th><th>E-mail</th><th>Plano</th><th>Cadastro</th></tr>
+            </thead>
+            <tbody id="usersTbody"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <h3>Acessos recentes</h3>
+          <table class="data-table">
+            <thead>
+              <tr><th>Data/Hora</th><th>Usuário</th><th>Evento</th><th>Detalhe</th></tr>
+            </thead>
+            <tbody id="logTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <button id="clearDataBtn" class="btn btn-danger">Limpar todos os dados locais</button>
+    </section>
   </main>
 
   <footer>
     <p>⚠️ Os valores são estimativas baseadas em benchmarks médios. O desempenho real pode variar conforme drivers, temperatura e configurações individuais.</p>
   </footer>
 
-  <script src="js/data.js?v=5"></script>
-  <script src="js/app.js?v=5"></script>
+  <!-- Modal de autenticação -->
+  <div class="modal-overlay" id="authModal" hidden>
+    <div class="modal">
+      <button class="modal-close" data-close="authModal">×</button>
+      <h2 class="modal-title">Bem-vindo ao GameSpec</h2>
+      <p class="modal-sub" id="authReason"></p>
+      <div class="tabs">
+        <button class="tab active" data-tab="loginForm" type="button">Entrar</button>
+        <button class="tab" data-tab="registerForm" type="button">Criar conta</button>
+      </div>
+
+      <form id="loginForm" class="modal-form">
+        <label>Usuário
+          <input type="text" id="loginUser" autocomplete="username" required>
+        </label>
+        <label>Senha
+          <input type="password" id="loginPass" autocomplete="current-password" required>
+        </label>
+        <p class="form-msg" id="loginMsg"></p>
+        <button type="submit" class="btn btn-gradient">Entrar</button>
+      </form>
+
+      <form id="registerForm" class="modal-form" hidden>
+        <label>Usuário
+          <input type="text" id="regUser" minlength="3" required>
+        </label>
+        <label>E-mail
+          <input type="email" id="regEmail" required>
+        </label>
+        <label>Senha
+          <input type="password" id="regPass" minlength="4" required>
+        </label>
+        <p class="form-msg" id="regMsg"></p>
+        <button type="submit" class="btn btn-gradient">Criar conta gratuita</button>
+      </form>
+
+      <p class="demo-note">Demonstração local — os dados ficam somente no seu navegador.</p>
+    </div>
+  </div>
+
+  <!-- Modal de pagamento -->
+  <div class="modal-overlay" id="payModal" hidden>
+    <div class="modal">
+      <button class="modal-close" data-close="payModal">×</button>
+      <h2 class="modal-title">Assinar Premium</h2>
+      <p class="modal-sub">Libere análises ilimitadas e todo o conteúdo</p>
+
+      <div class="pay-summary">
+        <span>Plano mensal recorrente</span>
+        <strong>R$ 19,90/mês</strong>
+      </div>
+
+      <div class="pay-methods">
+        <label class="method"><input type="radio" name="payMethod" value="pix" checked> Pix</label>
+        <label class="method"><input type="radio" name="payMethod" value="card"> Cartão de crédito</label>
+      </div>
+
+      <div id="pixArea" class="pix-area">
+        <div class="fake-qrcode">▛▜▛▜<br>▜▛▜▛<br>▛▜▛▜<br>▜▛▜▛</div>
+        <code id="pixCode"></code>
+        <p>Escaneie o QR Code fictício para pagar</p>
+      </div>
+
+      <form id="cardArea" class="modal-form" hidden>
+        <label>Número do cartão
+          <input id="cardNum" placeholder="0000 0000 0000 0000" maxlength="19">
+        </label>
+        <div class="row2">
+          <label>Validade
+            <input id="cardExp" placeholder="MM/AA" maxlength="5">
+          </label>
+          <label>CVV
+            <input id="cardCvv" placeholder="123" maxlength="4">
+          </label>
+        </div>
+        <label>Nome impresso no cartão
+          <input id="cardName" placeholder="Como aparece no cartão">
+        </label>
+      </form>
+
+      <p class="form-msg" id="payMsg"></p>
+      <button id="confirmPayBtn" class="btn btn-gradient">Confirmar pagamento</button>
+      <p class="demo-note">Simulação — nenhum pagamento real é processado.</p>
+    </div>
+  </div>
+
+  <script src="js/data.js?v=9"></script>
+  <script src="js/auth.js?v=9"></script>
+  <script src="js/app.js?v=9"></script>
 </body>
 </html>
