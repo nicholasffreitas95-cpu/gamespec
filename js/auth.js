@@ -311,7 +311,6 @@ function updateAuthUI() {
   const adminSection = document.getElementById("adminSection");
   const subBtn = document.getElementById("subscribeBtn");
   const newsLink = document.getElementById("newsFab");
-  const newsSection = document.getElementById("newsSection");
 
   // Sem sessão: o site inteiro fica bloqueado atrás da tela de login
   document.body.classList.toggle("logged-out", !s);
@@ -344,7 +343,6 @@ function updateAuthUI() {
     if (isAdmin(s)) renderDashboard();
 
     newsLink.hidden = !isPremium(s);
-    newsSection.hidden = !isPremium(s);
 
     subBtn.disabled = isPremium(s);
     subBtn.textContent = isPremium(s) ? "✓ Você já é Premium" : "Assinar Premium";
@@ -355,7 +353,6 @@ function updateAuthUI() {
     dashLink.hidden = true;
     adminSection.hidden = true;
     newsLink.hidden = true;
-    newsSection.hidden = true;
     subBtn.disabled = false;
     subBtn.textContent = "Assinar Premium";
   }

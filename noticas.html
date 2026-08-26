@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0e17">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>GameSpec — Últimas Notícias do Mundo do Hardware</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <nav class="topnav">
+    <a href="index.html" class="brand">Game<span>Spec</span></a>
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-links">
+        <a href="index.html">← Início</a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu de navegação">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="hero">
+    <span class="chip">📰 Notícias</span>
+    <h1>Últimas <span>notícias</span></h1>
+    <p>Acompanhe as novidades do mundo de hardware, GPUs, CPUs e jogos — atualizado todos os dias.</p>
+  </header>
+
+  <main>
+    <section class="content-section" style="margin-top: 0;">
+      <p class="section-sub" id="newsStatus"></p>
+      <div id="newsGrid" class="news-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>⚠️ Os valores são estimativas baseadas em benchmarks médios. O desempenho real pode variar conforme drivers, temperatura e configurações individuais.</p>
+  </footer>
+
+  <script>
+    document.getElementById("hamburgerBtn").addEventListener("click", function () {
+      var menu = document.getElementById("navMenu");
+      var open = menu.classList.toggle("open");
+      this.classList.toggle("active", open);
+      document.body.classList.toggle("menu-open", open);
+    });
+    document.getElementById("navMenu").querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        document.getElementById("navMenu").classList.remove("open");
+        document.getElementById("hamburgerBtn").classList.remove("active");
+        document.body.classList.remove("menu-open");
+      });
+    });
+  </script>
+  <script src="js/news.js"></script>
+</body>
+</html>

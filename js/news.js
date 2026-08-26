@@ -16,7 +16,7 @@ function renderNews(data) {
   const status = document.getElementById("newsStatus");
   grid.innerHTML = "";
 
-  if (!AuthGuard.isPremium()) {
+  if (typeof AuthGuard !== "undefined" && !AuthGuard.isPremium()) {
     grid.innerHTML = "";
     status.textContent = "";
     return;
