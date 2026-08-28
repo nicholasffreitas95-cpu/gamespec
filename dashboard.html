@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <title>Dashboard — FOXYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foxyn.css">
+</head>
+<body data-fox-page="dashboard" data-fox-sidebar="1">
+  <!-- Conteúdo -->
+  <main class="fox-main">
+    <div class="fox-page-header">
+      <h1>Dashboard</h1>
+      <p id="foxGreeting">Carregando sua inteligência de performance...</p>
+    </div>
+
+    <!-- Cabeçalho PC Score + estado geral -->
+    <div class="fox-grid fox-grid--auto" style="margin-bottom:18px">
+      <div class="fox-card fox-card--accent" style="display:flex;align-items:center;gap:20px">
+        <div id="foxPcScore"></div>
+        <div>
+          <h3>PC Score</h3>
+          <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Desempenho geral da sua máquina</p>
+          <span class="fox-badge fox-badge--perf" style="margin-top:8px">⚡ PRONTO PARA RODAR</span>
+        </div>
+      </div>
+
+      <div class="fox-card">
+        <h3 class="fox-card-header">Próximo Upgrade</h3>
+        <div class="fox-card-body">
+          <div style="font-family:var(--fox-font-display);font-weight:700;font-size:var(--fox-fs-lg)">RX 7800 XT 16GB</div>
+          <div style="font-size:var(--fox-fs-sm)">R$ 2.899,00 <span class="fox-accent">▼ -12,1%</span></div>
+          <div class="fox-progress" style="margin-top:12px"><div class="fill" style="width:76%"></div></div>
+          <div style="font-size:var(--fox-fs-xs);color:var(--fox-muted);margin-top:6px">76/100 — boa oportunidade</div>
+        </div>
+      </div>
+
+      <div class="fox-card">
+        <h3 class="fox-card-header">Economia estimada</h3>
+        <div class="fox-card-body">
+          <div style="font-family:var(--fox-font-display);font-weight:800;font-size:var(--fox-fs-3xl);color:var(--fox-success)">R$ 1.240</div>
+          <div style="font-size:var(--fox-fs-sm)">com alertas de preço nos últimos 30 dias</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alertas recentes -->
+    <div class="fox-card" style="margin-bottom:18px">
+      <h3 class="fox-card-header">Alertas recentes <span class="fox-badge fox-badge--buy">3</span></h3>
+      <div class="fox-card-body">
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--fox-border)">
+          <span>🦊 <strong>Encontrei uma oportunidade</strong>: Keep e acompanhe RX 7800 XT</span>
+          <span class="fox-badge fox-badge--buy">COMPRE</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--fox-border)">
+          <span>Seu PC pode ganhar desempenho com 32GB DDR5</span>
+          <span class="fox-badge fox-badge--wait">AGUARDE</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0">
+          <span>RTX 4070 Super subiu de preço esta semana</span>
+          <span class="fox-badge fox-badge--high">PREÇO ALTO</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benchmark summary + Jogos -->
+    <div class="fox-grid fox-grid--2">
+      <div class="fox-card">
+        <h3 class="fox-card-header">Benchmark rápido <a href="benchmark.html" class="fox-accent" style="text-decoration:none;font-size:var(--fox-fs-sm)">ver completo →</a></h3>
+        <div class="fox-card-body">
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--fox-border)">
+            <span>FPS médio (Cyberpunk ULTRA)</span><strong class="fox-display">78 FPS</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--fox-border)">
+            <span>1% Low</span><strong class="fox-display">61 FPS</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--fox-border)">
+            <span>Uso GPU</span><strong class="fox-display">82%</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0">
+            <span>Frame Time</span><strong class="fox-display">12,8ms</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="fox-card">
+        <h3 class="fox-card-header">Seus jogos</h3>
+        <div class="fox-card-body">
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--fox-border)">
+            <span>CS2</span><span class="fox-badge fox-badge--perf">⚡ PERFORMANCE</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--fox-border)">
+            <span>Cyberpunk 2077</span><span class="fox-badge fox-badge--ult">👑 ULTRA</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0">
+            <span>Valorant</span><span class="fox-badge fox-badge--perf">⚡ PERFORMANCE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="foxLogin" class="fox-overlay-modal hidden">
+    <div class="fox-modal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🦊</div>
+        <h3>Entre para continuar</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Faça login para acessar sua inteligência de performance Foxyn.</p>
+        <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/foxyn.js"></script>
+  <script src="js/foxyn-data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!FOXYN.gate()) return;
+
+      // Saudação conforme horário
+      const h = new Date().getHours();
+      const saud = h < 12 ? "Bom dia" : h < 18 ? "Boa tarde" : "Boa noite";
+      const user = FOXYN.currentUser();
+      document.getElementById("foxGreeting").textContent =
+        (user ? saud + ", " + user.username : saud) + " — FOXYN analisou seu PC e encontrou oportunidades.";
+
+      // PC Score
+      const score = foxynPCScore();
+      document.getElementById("foxPcScore").innerHTML = FOXYN.scoreRing(score, "PRONTO");
+    });
+  </script>
+</body>
+</html>

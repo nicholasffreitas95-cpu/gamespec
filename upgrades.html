@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <title>Upgrades — FOXYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foxyn.css">
+  <style>
+    .upgrade-row { display:flex; align-items:center; gap:14px; padding:16px; background:var(--fox-surface); border:1px solid var(--fox-border); border-radius:var(--fox-radius-lg); margin-bottom:12px; }
+    .upgrade-icon { width:48px;height:48px;border-radius:var(--fox-radius-md);background:var(--fox-surface-3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0; }
+    .upgrade-info { flex:1; }
+    .upgrade-info .name { font-family:var(--fox-font-display);font-weight:700; }
+    .upgrade-info .desc { font-size:var(--fox-fs-sm);color:var(--fox-muted); }
+  </style>
+</head>
+<body data-fox-page="upgrades" data-fox-sidebar="1">
+  <main class="fox-main">
+    <div class="fox-page-header">
+      <h1>Upgrades</h1>
+      <p>Recomendações inteligentes para elevar o desempenho do seu PC.</p>
+    </div>
+
+    <div class="fox-card fox-card--accent" style="display:flex;align-items:center;gap:16px;margin-bottom:18px">
+      <div class="fox-mascot fox-mascot--sm">🦊</div>
+      <div>
+        <strong>Seu próximo upgrade estratégico: RX 7800 XT</strong>
+        <div class="fox-muted" style="font-size:var(--fox-fs-sm)">Melhor custo-benefício para subir seu PC Score de 76 para ~88.</div>
+      </div>
+    </div>
+
+    <div class="upgrade-row">
+      <div class="upgrade-icon">🎮</div>
+      <div class="upgrade-info">
+        <div class="name">RTX 4070 → RX 7800 XT</div>
+        <div class="desc">+32% FPS em 1440p · R$ 2.899 · Buy Score 76</div>
+      </div>
+      <span class="fox-badge fox-badge--buy">COMPRE</span>
+    </div>
+    <div class="upgrade-row">
+      <div class="upgrade-icon">🧠</div>
+      <div class="upgrade-info">
+        <div class="name">Ryzen 7 5700X → Ryzen 7 5800X3D</div>
+        <div class="desc">+18% em jogos com cache 3D · Melhor para FPS</div>
+      </div>
+      <span class="fox-badge fox-badge--perf">⚡ PERFORMANCE</span>
+    </div>
+    <div class="upgrade-row">
+      <div class="upgrade-icon">💾</div>
+      <div class="upgrade-info">
+        <div class="name">Adicionar 16GB RAM (para 48GB)</div>
+        <div class="desc">Se você abre muitos jogos + navegador simultaneamente</div>
+      </div>
+      <span class="fox-badge fox-badge--wait">AGUARDE</span>
+    </div>
+  </main>
+
+  <div id="foxLogin" class="fox-overlay-modal hidden">
+    <div class="fox-modal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🦊</div>
+        <h3>Entre para ver upgrades</h3>
+        <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/foxyn.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", () => { FOXYN.gate(); });</script>
+</body>
+</html>

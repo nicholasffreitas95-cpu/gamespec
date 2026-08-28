@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <title>Benchmark — FOXYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foxyn.css">
+  <style>
+    .bench-chart { width: 100%; height: 220px; }
+    .bench-row { display:flex; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+    .bench-stat { flex:1; min-width:130px; background:var(--fox-surface-2); border:1px solid var(--fox-border); border-radius:var(--fox-radius-md); padding:16px; }
+    .bench-stat .lbl { font-size:var(--fox-fs-xs); color:var(--fox-muted); text-transform:uppercase; letter-spacing:0.08em; }
+    .bench-stat .val { font-family:var(--fox-font-display); font-weight:800; font-size:var(--fox-fs-2xl); color:var(--fox-orange); }
+    .bench-bar-track { height:10px; background:var(--fox-surface-3); border-radius:var(--fox-radius-pill); overflow:hidden; margin-top:8px; }
+    .bench-bar { height:100%; background:linear-gradient(90deg,var(--fox-orange),var(--fox-orange-light)); border-radius:inherit; }
+    .bench-game-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+    .bench-game-tab { padding:8px 14px; background:var(--fox-surface-2); border:1px solid var(--fox-border); border-radius:var(--fox-radius-pill); color:var(--fox-muted); cursor:pointer; font-size:var(--fox-fs-sm); font-weight:600; transition:all var(--fox-t-fast); }
+    .bench-game-tab.active, .bench-game-tab:hover { color:#fff; background:var(--fox-orange-soft); border-color:var(--fox-orange); }
+  </style>
+</head>
+<body data-fox-page="benchmark" data-fox-sidebar="1">
+  <main class="fox-main">
+    <div class="fox-page-header">
+      <h1>Benchmark</h1>
+      <p>Meça o desempenho real do seu PC em jogos e atividades.</p>
+    </div>
+
+    <!-- Seletor de jogo -->
+    <div class="fox-card" style="margin-bottom:18px">
+      <h3 class="fox-card-header">Selecione um jogo</h3>
+      <div class="bench-game-tabs" id="foxBenchGames"></div>
+    </div>
+
+    <!-- Métricas -->
+    <div class="bench-row" id="foxBenchStats">
+      <div class="bench-stat"><div class="lbl">FPS médio</div><div class="val" id="mFps">78</div></div>
+      <div class="bench-stat"><div class="lbl">1% Low</div><div class="val" id="mLow">61</div></div>
+      <div class="bench-stat"><div class="lbl">Frame Time</div><div class="val" id="mFrame">12,8ms</div></div>
+      <div class="bench-stat"><div class="lbl">Temp CPU</div><div class="val" id="mTempCpu">62°</div></div>
+      <div class="bench-stat"><div class="lbl">Temp GPU</div><div class="val" id="mTempGpu">68°</div></div>
+    </div>
+
+    <!-- Gráfico de linha / área -->
+    <div class="fox-card" style="margin-bottom:18px">
+      <h3 class="fox-card-header">FPS ao longo do tempo <span class="fox-badge fox-badge--perf">⚡</span></h3>
+      <div class="bench-chart" id="foxChart"></div>
+    </div>
+
+    <!-- Uso CPU/GPU -->
+    <div class="fox-grid fox-grid--2">
+      <div class="fox-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h3>Uso GPU</h3><strong class="fox-display fox-accent" id="mUseGpu">82%</strong></div>
+        <div class="fox-progress"><div class="fill" id="useGpuFill" style="width:82%"></div></div>
+      </div>
+      <div class="fox-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><h3>Uso CPU</h3><strong class="fox-display fox-accent" id="mUseCpu">45%</strong></div>
+        <div class="fox-progress fox-progress--warning"><div class="fill" id="useCpuFill" style="width:45%"></div></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="foxLogin" class="fox-overlay-modal hidden">
+    <div class="fox-modal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🦊</div>
+        <h3>Entre para continuar</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Faça login para executar benchmarks do seu PC.</p>
+        <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/foxyn.js"></script>
+  <script src="js/foxyn-data.js"></script>
+  <script>
+    // Gera dados de FPS por frame (demo)
+    function fpsSeries(base, low) {
+      const n = 40, out = [];
+      let v = base;
+      for (let i = 0; i < n; i++) {
+        v = Math.max(low, Math.min(base + 8, v + (Math.random() - 0.5) * 8));
+        out.push(Math.round(v));
+      }
+      return out;
+    }
+
+    function drawChart(canvas, data) {
+      const w = 600, h = 220, pad = 12;
+      const min = Math.min(...data), max = Math.max(...data);
+      const span = max - min || 1;
+      let path = "";
+      data.forEach((v, i) => {
+        const x = pad + (i / (data.length - 1)) * (w - pad * 2);
+        const y = h - pad - ((v - min) / span) * (h - pad * 2);
+        path += (i === 0 ? `M${x},${y}` : ` L${x},${y}`);
+      });
+      const area = path + ` L${w - pad},${h - pad} L${pad},${h - pad} Z`;
+      canvas.innerHTML = `
+        <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:100%">
+          <defs><linearGradient id="foxline" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ff6a00" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ff6a00" stop-opacity="0"/>
+          </linearGradient></defs>
+          <path d="${area}" fill="url(#foxline)"/>
+          <path d="${path}" fill="none" stroke="#ff6a00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!FOXYN.gate()) return;
+
+      const tabsEl = document.getElementById("foxBenchGames");
+      let current = FOXYN_GAMES[0];
+
+      FOXYN_GAMES.forEach((g) => {
+        const b = document.createElement("button");
+        b.className = "bench-game-tab" + (g === current ? " active" : "");
+        b.textContent = g.name;
+        b.addEventListener("click", () => {
+          current = g;
+          renderBench(g);
+          document.querySelectorAll(".bench-game-tab").forEach((x) => x.classList.remove("active"));
+          b.classList.add("active");
+        });
+        tabsEl.appendChild(b);
+      });
+
+      function renderBench(game) {
+        const b = foxynBenchmarkGame(game);
+        const fps = game.fps.ultra || 60;
+        const low = Math.round(fps * 0.78);
+        document.getElementById("mFps").textContent = fps;
+        document.getElementById("mLow").textContent = low;
+        document.getElementById("mFrame").textContent = (1000 / fps).toFixed(1).replace(".", ",") + "ms";
+        document.getElementById("mTempCpu").textContent = 62 + "°";
+        document.getElementById("mTempGpu").textContent = 68 + "°";
+        const gu = 78, cu = 58;
+        document.getElementById("mUseGpu").textContent = gu + "%";
+        document.getElementById("useGpuFill").style.width = gu + "%";
+        document.getElementById("mUseCpu").textContent = cu + "%";
+        document.getElementById("useCpuFill").style.width = cu + "%";
+        drawChart(document.getElementById("foxChart"), fpsSeries(fps, low));
+      }
+
+      renderBench(current);
+    });
+  </script>
+</body>
+</html>

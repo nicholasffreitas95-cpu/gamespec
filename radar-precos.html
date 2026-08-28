@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <title>Radar de Preços — FOXYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foxyn.css">
+  <style>
+    .radar-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+    .product-card { background:var(--fox-surface); border:1px solid var(--fox-border); border-radius:var(--fox-radius-lg); overflow:hidden; transition:transform var(--fox-t-med),border-color var(--fox-t-med),box-shadow var(--fox-t-med); }
+    .product-card:hover { transform:translateY(-3px); border-color:var(--fox-border-strong); box-shadow:var(--fox-shadow-2); }
+    .product-art { height:120px; display:flex; align-items:center; justify-content:center; font-size:3rem; background:radial-gradient(ellipse at center,var(--fox-surface-3),var(--fox-surface)); }
+    .product-body { padding:16px; }
+    .product-name { font-family:var(--fox-font-display); font-weight:700; font-size:var(--fox-fs-md); margin-bottom:6px; }
+    .product-price { font-family:var(--fox-font-display); font-weight:800; font-size:var(--fox-fs-2xl); }
+    .product-price .old { font-size:var(--fox-fs-sm); color:var(--fox-muted); text-decoration:line-through; font-weight:500; }
+    .product-meta { display:flex; justify-content:space-between; font-size:var(--fox-fs-xs); color:var(--fox-muted); margin:10px 0; }
+    .monitor-btn { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:10px; background:var(--fox-surface-2); border:1px solid var(--fox-border-strong); border-radius:var(--fox-radius-md); color:var(--fox-text); font-weight:600; font-family:var(--fox-font-ui); font-size:var(--fox-fs-sm); cursor:pointer; transition:all var(--fox-t-fast); }
+    .monitor-btn:hover { border-color:var(--fox-orange); color:var(--fox-orange); background:var(--fox-orange-soft); }
+    .monitor-btn.is-monitored { border-color:var(--fox-success); color:var(--fox-success); background:var(--fox-success-soft); }
+    .product-actions { display:flex; gap:8px; margin-top:12px; }
+    .product-actions .monitor-btn { flex:1; }
+    .store-chip { display:inline-flex;align-items:center;gap:5px;padding:2px 8px;font-size:var(--fox-fs-xs);background:var(--fox-surface-2);border:1px solid var(--fox-border);border-radius:var(--fox-radius-pill);color:var(--fox-muted); }
+    .stock-chip { display:inline-flex;align-items:center;gap:5px;padding:2px 8px;font-size:var(--fox-fs-xs);border-radius:var(--fox-radius-pill); }
+    .stock-chip.in { color:var(--fox-success);background:var(--fox-success-soft); }
+    .stock-chip.out { color:var(--fox-danger);background:var(--fox-danger-soft); }
+  </style>
+</head>
+<body data-fox-page="radar-precos" data-fox-sidebar="1">
+  <main class="fox-main">
+    <div class="fox-page-header">
+      <h1>Radar de Preços</h1>
+      <p>Central de oportunidades. Acompanhe preços e saiba quando comprar.</p>
+    </div>
+
+    <div class="fox-card fox-card--accent" style="display:flex;align-items:center;gap:16px;margin-bottom:18px">
+      <div class="fox-mascot fox-mascot--sm">🦊</div>
+      <div>
+        <strong>Encontrei oportunidades para você.</strong>
+        <div class="fox-muted" style="font-size:var(--fox-fs-sm)">Monitore produtos e eu aviso quando o preço está bom.</div>
+      </div>
+    </div>
+
+    <div class="radar-grid" id="foxRadar"></div>
+
+    <!-- Empty state quando nada monitorado -->
+    <div id="foxRadarEmpty" class="fox-empty" hidden>
+      <div class="fox-empty-art">📡</div>
+      <h3>Seu Radar ainda está vazio</h3>
+      <p>Adicione seu primeiro produto e eu começo a acompanhar o preço para você. 🦊</p>
+    </div>
+  </main>
+
+  <div id="foxLogin" class="fox-overlay-modal hidden">
+    <div class="fox-modal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🦊</div>
+        <h3>Entre para continuar</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Faça login para monitorar preços e receber alertas.</p>
+        <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/foxyn.js"></script>
+  <script src="js/foxyn-data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!FOXYN.gate()) return;
+
+      const grid = document.getElementById("foxRadar");
+      const empty = document.getElementById("foxRadarEmpty");
+      const monitored = FOXYN.get("monitored", []);
+      const artByBrand = { NVIDIA: "🎮", AMD: "⚙️", Intel: "🧠", Kingston: "💾", Samsung: "⚡" };
+
+      function render() {
+        grid.innerHTML = "";
+        grid.hidden = false;
+        empty.hidden = true;
+        FOXYN_PRODUCTS.forEach((p) => {
+          const score = foxynBuyScore(p);
+          const [cls, verdict] = FOXYN.scoreColor(score);
+          const isMon = monitored.includes(p.id);
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <div class="product-art">${artByBrand[p.brand] || "📦"}</div>
+            <div class="product-body">
+              <div class="product-name">${p.name}</div>
+              <div class="product-price">${fmtReais(p.price)}
+                <span class="old">${fmtReais(p.prev)}</span>
+              </div>
+              <div class="product-meta">
+                <span class="store-chip">🏬 ${p.store}</span>
+                <span class="stock-chip ${p.stock ? "in" : "out"}">${p.stock ? "● Disponível" : "○ Sem estoque"}</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+                <div class="fox-score ${cls}">
+                  <div class="fox-score-ring" style="width:60px;height:60px">
+                    <svg width="60" height="60">
+                      <circle class="track" cx="30" cy="30" r="25" stroke-width="6" fill="none"/>
+                      <circle class="fill" cx="30" cy="30" r="25" stroke-width="6" fill="none" stroke-dasharray="${2*Math.PI*25}" stroke-dashoffset="${2*Math.PI*25*(1-score/100)}"/>
+                    </svg>
+                    <span class="num" style="font-size:1.1rem">${score}</span>
+                  </div>
+                  <span class="fox-score-verdict">${verdict}</span>
+                </div>
+                <div style="flex:1;font-size:var(--fox-fs-xs);color:var(--fox-muted)">
+                  <div>Tendência</div>
+                  <div class="fox-display" style="font-size:1.1rem;color:${p.trend<=0?"var(--fox-success)":"var(--fox-danger)"}">
+                    ${p.trend<=0?"▼":"▲"} ${Math.abs(p.trend).toFixed(1)}%
+                  </div>
+                </div>
+              </div>
+              <button class="monitor-btn ${isMon ? "is-monitored" : ""}" data-id="${p.id}">
+                ${isMon ? "✓ Monitorando" : "🔔 MONITORAR"}
+              </button>
+            </div>`;
+          grid.appendChild(card);
+        });
+
+        grid.querySelectorAll(".monitor-btn").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const id = btn.dataset.id;
+            const i = monitored.indexOf(id);
+            if (i >= 0) { monitored.splice(i, 1); FOXYN.toast("Produto removido do radar"); }
+            else {
+              monitored.push(id);
+              FOXYN.toast("🦊 Comecei a monitorar este preço. Vou te avisar quando cair.", "success");
+            }
+            FOXYN.set("monitored", monitored);
+            render();
+          })
+        );
+      }
+
+      render();
+    });
+  </script>
+</body>
+</html>

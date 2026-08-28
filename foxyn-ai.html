@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <title>Foxyn AI — FOXYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foxyn.css">
+  <style>
+    .chat-shell { display:flex; flex-direction:column; height:calc(100vh - 160px); min-height:460px; background:var(--fox-surface); border:1px solid var(--fox-border); border-radius:var(--fox-radius-lg); overflow:hidden; }
+    .chat-head { display:flex; align-items:center; gap:12px; padding:16px 20px; border-bottom:1px solid var(--fox-border); }
+    .chat-head h3 { font-size:var(--fox-fs-lg); }
+    .chat-head .online { font-size:var(--fox-fs-xs); color:var(--fox-success); }
+    .chat-log { flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:14px; }
+    .chat-msg { display:flex; gap:10px; max-width:85%; }
+    .chat-msg.user { align-self:flex-end; flex-direction:row-reverse; }
+    .chat-bubble { padding:12px 16px; border-radius:var(--fox-radius-lg); font-size:var(--fox-fs-md); line-height:1.5; }
+    .chat-msg.fox .chat-bubble { background:var(--fox-surface-2); border:1px solid var(--fox-border); border-top-left-radius:4px; }
+    .chat-msg.user .chat-bubble { background:var(--fox-orange); color:#fff; border-top-right-radius:4px; }
+    .chat-reco { display:flex; gap:10px; align-items:center; background:var(--fox-surface-2); border:1px solid var(--fox-border); border-radius:var(--fox-radius-md); padding:12px; margin-top:8px; }
+    .chat-input-row { display:flex; gap:10px; padding:14px; border-top:1px solid var(--fox-border); }
+    .chat-input-row .fox-input { flex:1; }
+    .chat-suggest { display:flex; gap:8px; flex-wrap:wrap; padding:0 20px 14px; }
+    .suggest-chip { padding:7px 12px; background:var(--fox-surface-2); border:1px solid var(--fox-border); border-radius:var(--fox-radius-pill); color:var(--fox-muted); font-size:var(--fox-fs-sm); cursor:pointer; transition:all var(--fox-t-fast); }
+    .suggest-chip:hover { border-color:var(--fox-orange); color:var(--fox-orange); }
+  </style>
+</head>
+<body data-fox-page="foxyn-ai" data-fox-sidebar="1">
+  <main class="fox-main">
+    <div class="fox-page-header">
+      <h1>Foxyn AI</h1>
+      <p>Converse com o cérebro da plataforma. Tire dúvidas sobre seu PC e upgrades.</p>
+    </div>
+
+    <div class="chat-shell">
+      <div class="chat-head">
+        <div class="fox-mascot fox-mascot--sm">🦊</div>
+        <div>
+          <h3>Foxyn AI</h3>
+          <span class="online">● Online — inteligência Foxyn ativa</span>
+        </div>
+      </div>
+
+      <div class="chat-log" id="foxChatLog"></div>
+
+      <div class="chat-suggest" id="foxSuggest"></div>
+
+      <div class="chat-input-row">
+        <input id="foxChatInput" class="fox-input" placeholder="Pergunte sobre seu PC, upgrades ou preços..." aria-label="Mensagem para a Foxyn">
+        <button id="foxChatSend" class="fox-btn fox-btn--primary">Enviar</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="foxLogin" class="fox-overlay-modal hidden">
+    <div class="fox-modal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🦊</div>
+        <h3>Entre para continuar</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Faça login para conversar com a Foxyn AI.</p>
+        <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/foxyn.js"></script>
+  <script src="js/foxyn-data.js"></script>
+  <script>
+    const SUGGESTIONS = [
+      "Qual é o meu PC Score?",
+      "Devo comprar a RX 7800 XT agora?",
+      "Como melhorar meu desempenho em 1080p?",
+      "Preciso de quanta RAM?"
+    ];
+
+    const FOXYN_REPLIES = [
+      { k: /score/i, txt: "Seu PC Score é <strong>76</strong> — uma boa base para 1080p/1440p. Com um pequeno upgrade de GPU você chega perto de 85. 🦊" },
+      { k: /7800|preço|comprar|radar/i, txt: "A <strong>RX 7800 XT</strong> está R$ 2.899 com tendência de queda de 12,1%. Buy Score <strong>76</strong> — <em>boa oportunidade</em> para comprar agora. 🦊" },
+      { k: /desempenho|melhorar|fps/i, txt: "Seu PC pode ganhar desempenho com este ajuste: ative o upscaling (DLSS/FSR) para ganhar ~30% de FPS em jogos pesados, ou considere um upgrade de GPU. 🦊" },
+      { k: /ram|memória/i, txt: "Para jogos atuais, <strong>16GB</strong> é o mínimo e <strong>32GB</strong> é o ideal para multitarefa e títulos pesados. Você já está bem servido com 32GB. 🦊" }
+    ];
+    const FALLBACK = "Analisei seu cenário. Para decidir melhor, me conte mais sobre o que você quer melhorar — GPU, CPU ou FPS em um jogo específico. 🦊";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!FOXYN.gate()) return;
+
+      const log = document.getElementById("foxChatLog");
+      const input = document.getElementById("foxChatInput");
+      const sendBtn = document.getElementById("foxChatSend");
+      const suggest = document.getElementById("foxSuggest");
+
+      function addMsg(text, who) {
+        const div = document.createElement("div");
+        div.className = "chat-msg " + who;
+        const avatar = who === "fox" ? '<div class="fox-mascot fox-mascot--sm">🦊</div>' : "";
+        div.innerHTML = `${avatar}<div class="chat-bubble">${text}</div>`;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+        return div;
+      }
+
+      function foxReply(q) {
+        const lower = q.toLowerCase();
+        for (const r of FOXYN_REPLIES) if (r.k.test(lower)) return r.txt;
+        return FALLBACK;
+      }
+
+      function send(text) {
+        if (!text.trim()) return;
+        addMsg(escapeHtml(text), "user");
+        input.value = "";
+        // pequeno delay para sensação de "IA pensando"
+        const typing = addMsg('<span class="fox-skeleton" style="display:inline-block;width:60%;height:14px"></span>', "fox");
+        setTimeout(() => {
+          typing.querySelector(".chat-bubble").innerHTML = foxReply(text);
+          log.scrollTop = log.scrollHeight;
+        }, 600);
+      }
+
+      function escapeHtml(s) {
+        return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      }
+
+      sendBtn.addEventListener("click", () => send(input.value));
+      input.addEventListener("keydown", (e) => { if (e.key === "Enter") send(input.value); });
+
+      SUGGESTIONS.forEach((s) => {
+        const c = document.createElement("button");
+        c.className = "suggest-chip";
+        c.textContent = s;
+        c.addEventListener("click", () => send(s));
+        suggest.appendChild(c);
+      });
+
+      // Mensagem de boas-vindas
+      addMsg("Olá! Sou a <strong>Foxyn AI</strong>. Analiso seu PC e te ajudo a tomar decisões melhores de hardware. O que você quer saber? 🦊", "fox");
+    });
+  </script>
+</body>
+</html>

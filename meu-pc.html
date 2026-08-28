@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <title>Meu PC — FOXYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foxyn.css">
+</head>
+<body data-fox-page="meu-pc" data-fox-sidebar="1">
+  <main class="fox-main">
+    <div class="fox-page-header">
+      <h1>Meu PC</h1>
+      <p>Perfil completo da sua máquina. Visualize componentes e desempenho.</p>
+    </div>
+
+    <!-- PC Score destacado -->
+    <div class="fox-card fox-card--accent" style="display:flex;align-items:center;gap:24px;margin-bottom:18px">
+      <div id="foxPcScore"></div>
+      <div>
+        <h3>Seu PC em uma visão</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Configuração balanceada com bom desempenho em 1080p/1440p.</p>
+        <span class="fox-badge fox-badge--perf" style="margin-top:6px">⚡ PRONTO PARA RODAR</span>
+      </div>
+    </div>
+
+    <!-- Componentes -->
+    <div class="fox-grid fox-grid--auto" style="margin-bottom:18px">
+      <div class="fox-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <h3>CPU</h3><span style="font-size:1.4rem">🧠</span>
+        </div>
+        <div class="fox-display" style="font-weight:700">Ryzen 7 5700X</div>
+        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">8 núcleos / 16 threads</div>
+        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Temperatura</span><strong><span class="fox-accent">62°</span></strong></div>
+        <div class="fox-progress fox-progress--warning"><div class="fill" style="width:62%"></div></div>
+      </div>
+
+      <div class="fox-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <h3>GPU</h3><span style="font-size:1.4rem">🎮</span>
+        </div>
+        <div class="fox-display" style="font-weight:700">RTX 4070 12GB</div>
+        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">NVIDIA / VRAM 12GB</div>
+        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Temperatura</span><strong><span class="fox-accent">68°</span></strong></div>
+        <div class="fox-progress fox-progress--warning"><div class="fill" style="width:68%"></div></div>
+      </div>
+
+      <div class="fox-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <h3>RAM</h3><span style="font-size:1.4rem">💾</span>
+        </div>
+        <div class="fox-display" style="font-weight:700">32GB DDR5</div>
+        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">6000 MT/s · Dual channel</div>
+        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Uso</span><strong>12/32GB</strong></div>
+        <div class="fox-progress"><div class="fill" style="width:38%"></div></div>
+      </div>
+
+      <div class="fox-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <h3>SSD</h3><span style="font-size:1.4rem">⚡</span>
+        </div>
+        <div class="fox-display" style="font-weight:700">NVMe 1TB Gen4</div>
+        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">Samsung · 7000 MB/s leitura</div>
+        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Armazenamento</span><strong>480/1000GB</strong></div>
+        <div class="fox-progress"><div class="fill" style="width:48%"></div></div>
+      </div>
+    </div>
+
+    <!-- Performance geral -->
+    <div class="fox-card">
+      <h3 class="fox-card-header">Performance geral</h3>
+      <div class="fox-card-body">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--fox-border)">
+          <span class="fox-muted">Desempenho em 1080p</span>
+          <span class="fox-badge fox-badge--perf">⚡ EXCELENTE</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--fox-border)">
+          <span class="fox-muted">Desempenho em 1440p</span>
+          <span class="fox-badge fox-badge--ult">👑 ALTO</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0">
+          <span class="fox-muted">Desempenho em 4K</span>
+          <span class="fox-badge fox-badge--wait">MÉDIO</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="foxLogin" class="fox-overlay-modal hidden">
+    <div class="fox-modal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🦊</div>
+        <h3>Entre para continuar</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Faça login para ver o perfil completo do seu PC.</p>
+        <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/foxyn.js"></script>
+  <script src="js/foxyn-data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!FOXYN.gate()) return;
+      document.getElementById("foxPcScore").innerHTML = FOXYN.scoreRing(foxynPCScore(), "PRONTO");
+    });
+  </script>
+</body>
+</html>

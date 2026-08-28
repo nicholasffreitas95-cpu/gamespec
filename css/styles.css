@@ -1,6 +1,7 @@
 /* ============================================================
-   GameSpec — Fluent Design (Microsoft) × identidade gamer dark
-   Fontes: Inter (UI) + Rajdhani (display/números)
+   FOXYN — Fluent Design × identidade gamer dark (tema aplicado)
+   Fontes: Inter (UI) + Manrope (display/números)
+   Paleta Foxyn: Deep Black + Fox Orange
    ============================================================ */
 
 * {
@@ -10,33 +11,34 @@
 }
 
 :root {
-  --bg: #0a0e17;
+  --bg: #080808;
   --surface: rgba(255, 255, 255, 0.045);
-  --surface-strong: rgba(22, 28, 42, 0.78);
+  --surface-strong: #161a1a;
+  --surface-2: #1a1e1e;
   --stroke: rgba(255, 255, 255, 0.08);
-  --stroke-strong: rgba(255, 255, 255, 0.14);
-  --text: #f3f5fa;
-  --muted: #9aa4b8;
-  --accent: #7c5cff;
-  --accent2: #00d4ff;
+  --stroke-strong: #343b3b;
+  --text: #ffffff;
+  --muted: #a3a3a3;
+  --accent: #ff6a00;
+  --accent2: #ff8c1a;
   --green: #3ddc84;
   --yellow: #ffc857;
-  --orange: #ff8c42;
+  --orange: #ff8c1a;
   --red: #ff5470;
 
   --radius-lg: 16px;
-  --radius-md: 10px;
+  --radius-md: 12px;
   --radius-pill: 999px;
 
-  /* Sombras em camadas, estilo Fluent */
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.32);
-  --shadow-2: 0 2px 6px rgba(0, 0, 0, 0.28), 0 12px 32px rgba(0, 0, 0, 0.36);
+  /* Sombras em camadas, estilo Fluent/Foxyn */
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 6px 24px rgba(0, 0, 0, 0.5);
   --shadow-glow:
-    0 0 0 1px rgba(124, 92, 255, 0.35),
-    0 8px 40px rgba(124, 92, 255, 0.18);
+    0 0 0 1px rgba(255, 106, 0, 0.35),
+    0 8px 40px rgba(255, 106, 0, 0.18);
 
   --font-ui: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
-  --font-display: "Rajdhani", "Segoe UI Variable Display", "Segoe UI", sans-serif;
+  --font-display: "Manrope", "Segeo UI Variable Display", "Segoe UI", sans-serif;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -53,8 +55,8 @@ body {
   color: var(--text);
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124, 92, 255, 0.14), transparent),
-    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(0, 212, 255, 0.06), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 106, 0, 0.14), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(255, 140, 26, 0.06), transparent);
   background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
@@ -76,7 +78,7 @@ body {
   height: 480px;
   top: -160px;
   left: -120px;
-  background: radial-gradient(circle, #7c5cff 0%, transparent 70%);
+  background: radial-gradient(circle, #ff6a00 0%, transparent 70%);
 }
 
 .glow-2 {
@@ -84,12 +86,32 @@ body {
   height: 420px;
   bottom: -140px;
   right: -100px;
-  background: radial-gradient(circle, #00d4ff 0%, transparent 70%);
+  background: radial-gradient(circle, #ff8c1a 0%, transparent 70%);
   opacity: 0.18;
 }
 
 ::selection {
-  background: rgba(124, 92, 255, 0.45);
+  background: rgba(255, 106, 0, 0.45);
+}
+
+/* Mascote Foxyn (avatar raposa) */
+.fox-mascot {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: var(--shadow-glow);
+  flex-shrink: 0;
+}
+.fox-mascot--lg {
+  width: 84px;
+  height: 84px;
+  font-size: 2.6rem;
+  border-radius: 24px;
 }
 
 /* Scrollbar fina e discreta */
@@ -121,8 +143,8 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent2);
-  background: rgba(0, 212, 255, 0.07);
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(255, 140, 26, 0.07);
+  border: 1px solid rgba(255, 140, 26, 0.25);
   border-radius: var(--radius-pill);
   margin-bottom: 20px;
   backdrop-filter: blur(12px);
@@ -280,12 +302,12 @@ select {
   touch-action: manipulation;
 }
 
-select:hover { border-color: rgba(124, 92, 255, 0.55); }
+select:hover { border-color: rgba(255, 106, 0, 0.55); }
 
 select:focus-visible {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.25);
 }
 
 optgroup {
@@ -323,7 +345,7 @@ option {
 #analyzeBtn:hover {
   transform: translateY(-1px);
   filter: brightness(1.08);
-  box-shadow: 0 6px 24px rgba(124, 92, 255, 0.4);
+  box-shadow: 0 6px 24px rgba(255, 106, 0, 0.4);
 }
 
 #analyzeBtn:active {
@@ -333,7 +355,7 @@ option {
 
 #analyzeBtn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.35);
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.35);
 }
 
 /* ---------- Resultados ---------- */
@@ -451,7 +473,7 @@ option {
   border: 1px solid transparent;
 }
 
-.status.great { color: #8be9ff; background: rgba(0, 212, 255, 0.1); border-color: rgba(0, 212, 255, 0.3); }
+.status.great { color: #ffa155; background: rgba(255, 140, 26, 0.1); border-color: rgba(255, 140, 26, 0.3); }
 .status.good  { color: #7df0b6; background: rgba(61, 220, 132, 0.1); border-color: rgba(61, 220, 132, 0.3); }
 .status.ok    { color: #ffc07a; background: rgba(255, 140, 66, 0.1); border-color: rgba(255, 140, 66, 0.3); }
 .status.bad   { color: #ff93a8; background: rgba(255, 84, 112, 0.1); border-color: rgba(255, 84, 112, 0.3); }
@@ -523,7 +545,7 @@ body.logged-out .modal-overlay {
 
 body.logged-out .modal {
   width: min(440px, 100%);
-  border-color: rgba(124, 92, 255, 0.4);
+  border-color: rgba(255, 106, 0, 0.4);
   box-shadow: var(--shadow-glow);
   animation: slideUp 0.4s var(--ease-out);
 }
@@ -683,14 +705,29 @@ body.menu-open { overflow: hidden; }
 .brand {
   font-family: var(--font-display);
   font-size: 1.45rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.01em;
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.brand span {
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.brand .sub {
   background: linear-gradient(92deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   background-clip: text;
@@ -791,7 +828,7 @@ body.menu-open { overflow: hidden; }
 
 .btn-gradient:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(124, 92, 255, 0.4);
+  box-shadow: 0 6px 22px rgba(255, 106, 0, 0.4);
 }
 
 .btn-outline {
@@ -802,7 +839,7 @@ body.menu-open { overflow: hidden; }
 
 .btn-outline:hover {
   border-color: var(--accent);
-  background: rgba(124, 92, 255, 0.08);
+  background: rgba(255, 106, 0, 0.08);
 }
 
 .btn-ghost {
@@ -881,8 +918,8 @@ body.menu-open { overflow: hidden; }
 
 .plan-badge.admin {
   color: #d0bfff;
-  background: rgba(124, 92, 255, 0.14);
-  border-color: rgba(124, 92, 255, 0.5);
+  background: rgba(255, 106, 0, 0.14);
+  border-color: rgba(255, 106, 0, 0.5);
 }
 
 .quota-info {
@@ -980,8 +1017,8 @@ body.menu-open { overflow: hidden; }
 
 .price-card {
   text-align: center;
-  background: linear-gradient(180deg, rgba(124, 92, 255, 0.1), rgba(0, 212, 255, 0.04)), var(--surface-strong);
-  border: 1px solid rgba(124, 92, 255, 0.35);
+  background: linear-gradient(180deg, rgba(255, 106, 0, 0.1), rgba(255, 140, 26, 0.04)), var(--surface-strong);
+  border: 1px solid rgba(255, 106, 0, 0.35);
   border-radius: 20px;
   backdrop-filter: blur(24px);
   padding: 44px 32px;
@@ -1215,7 +1252,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .tab.active {
-  background: rgba(124, 92, 255, 0.22);
+  background: rgba(255, 106, 0, 0.22);
   color: var(--text);
 }
 
@@ -1245,7 +1282,7 @@ input {
 input:focus-visible {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.25);
 }
 
 .row2 {
@@ -1307,7 +1344,7 @@ input:focus-visible {
 
 .method:has(input:checked) {
   border-color: var(--accent);
-  background: rgba(124, 92, 255, 0.1);
+  background: rgba(255, 106, 0, 0.1);
 }
 
 .method input { width: auto; accent-color: var(--accent); }
@@ -1330,7 +1367,7 @@ input:focus-visible {
   letter-spacing: 2px;
   color: var(--accent2);
   text-align: center;
-  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+  filter: drop-shadow(0 0 8px rgba(255, 140, 26, 0.4));
 }
 
 .pix-area code {
@@ -1381,7 +1418,7 @@ input:focus-visible {
 
 .news-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(0, 212, 255, 0.35);
+  border-color: rgba(255, 140, 26, 0.35);
 }
 
 .news-meta {
@@ -1396,9 +1433,9 @@ input:focus-visible {
   padding: 2px 10px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #8be9ff;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: #ffa155;
+  background: rgba(255, 140, 26, 0.08);
+  border: 1px solid rgba(255, 140, 26, 0.25);
   border-radius: var(--radius-pill);
 }
 
@@ -1439,20 +1476,20 @@ input:focus-visible {
   font-size: 1.35rem;
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(124, 92, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(255, 106, 0, 0.4);
   animation: fabPulse 3s ease-in-out infinite;
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
 }
 
 .news-fab:hover {
   transform: scale(1.12);
-  box-shadow: 0 6px 28px rgba(124, 92, 255, 0.6);
+  box-shadow: 0 6px 28px rgba(255, 106, 0, 0.6);
 }
 
 .news-fab:active { transform: scale(0.95); }
 .news-fab[hidden] { display: none; }
 
 @keyframes fabPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(124, 92, 255, 0.4); }
-  50% { box-shadow: 0 4px 28px rgba(124, 92, 255, 0.65); }
+  0%, 100% { box-shadow: 0 4px 20px rgba(255, 106, 0, 0.4); }
+  50% { box-shadow: 0 4px 28px rgba(255, 106, 0, 0.65); }
 }
