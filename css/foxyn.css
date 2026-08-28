@@ -591,6 +591,7 @@ optgroup { color: var(--fox-muted); font-style: normal; font-weight: 600; }
    ============================================================ */
 
 .fox-sidebar-toggle { display: none; }
+.fox-topbar { display: none; align-items: center; gap: 12px; margin-bottom: 20px; }
 
 @media (max-width: 960px) {
   .fox-sidebar { transform: translateX(-100%); transition: transform var(--fox-t-med); }
