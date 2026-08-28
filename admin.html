@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <title>Admin — FOXYN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foxyn.css">
+  <style>
+    .metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:14px; margin-bottom:22px; }
+    .metric { background:var(--fox-surface); border:1px solid var(--fox-border); border-radius:var(--fox-radius-lg); padding:18px; }
+    .metric .m-val { font-family:var(--fox-font-display); font-weight:800; font-size:var(--fox-fs-2xl); color:var(--fox-orange); }
+    .metric .m-lbl { font-size:var(--fox-fs-xs); color:var(--fox-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
+    table.fox-table { width:100%; border-collapse:collapse; font-size:var(--fox-fs-sm); }
+    table.fox-table th, table.fox-table td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--fox-border); }
+    table.fox-table th { color:var(--fox-muted); text-transform:uppercase; font-size:var(--fox-fs-xs); letter-spacing:0.06em; }
+    .limit-editor { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 0; border-bottom:1px solid var(--fox-border); }
+    .limit-editor:last-child { border-bottom:none; }
+    .limit-editor .feat { font-weight:600; min-width:220px; }
+    .limit-editor input { width:90px; }
+  </style>
+</head>
+<body data-fox-page="admin" data-fox-sidebar="1">
+  <main class="fox-main">
+    <div class="fox-page-header">
+      <h1>Painel Administrativo</h1>
+      <p>Controle de planos, limites, usuários e métricas da plataforma.</p>
+    </div>
+
+    <div id="adminBody" class="hidden">
+      <!-- Métricas -->
+      <div class="metric-grid">
+        <div class="metric"><div class="m-val" id="mUsers">0</div><div class="m-lbl">Usuários</div></div>
+        <div class="metric"><div class="m-val" id="mFree">0</div><div class="m-lbl">Plano FREE</div></div>
+        <div class="metric"><div class="m-val" id="mEssential">0</div><div class="m-lbl">Plano Essential</div></div>
+        <div class="metric"><div class="m-val" id="mUltimate">0</div><div class="m-lbl">Plano Ultimate</div></div>
+        <div class="metric"><div class="m-val" id="mConv">0%</div><div class="m-lbl">Conversão paga</div></div>
+        <div class="metric"><div class="m-val" id="mCancel">0</div><div class="m-lbl">Cancelamentos</div></div>
+        <div class="metric"><div class="m-val" id="mMon">0</div><div class="m-lbl">Produtos monitorados</div></div>
+        <div class="metric"><div class="m-val" id="mAlerts">0</div><div class="m-lbl">Alertas</div></div>
+        <div class="metric"><div class="m-val" id="mEco">R$ 0</div><div class="m-lbl">Economia registrada</div></div>
+      </div>
+
+      <div class="fox-grid fox-grid--2">
+        <!-- Limites centralizados -->
+        <div class="fox-card">
+          <h3 class="fox-card-header">Limites por plano (centralizados)</h3>
+          <div class="fox-card-body" id="foxLimits"></div>
+          <div class="fox-why">Os limites são lidos aqui e aplicados por <code>FoxynCore.verify()</code> em todas as páginas. Em produção, vivem no backend — este painel prepara o contrato.</div>
+        </div>
+
+        <!-- Usuários -->
+        <div class="fox-card">
+          <h3 class="fox-card-header">Usuários</h3>
+          <div class="fox-card-body" style="overflow:auto">
+            <table class="fox-table">
+              <thead><tr><th>Usuário</th><th>Plano</th><th>Criado</th></tr></thead>
+              <tbody id="usersBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="foxLogin" class="fox-overlay-modal hidden">
+    <div class="fox-modal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🔐</div>
+        <h3>Acesso restrito a administradores</h3>
+        <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/foxyn.js"></script>
+  <script src="js/foxyn-core.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = FOXYN.currentUser();
+      const isAdmin = !!(user && (user.role === "admin" || (user.username || "").toLowerCase() === "adm1982"));
+      if (!isAdmin) {
+        const m = document.getElementById("foxLogin");
+        if (m) m.classList.remove("hidden");
+        return;
+      }
+      document.getElementById("adminBody").classList.remove("hidden");
+      renderMetrics();
+      renderLimits();
+      renderUsers();
+    });
+
+    function renderMetrics() {
+      const m = FoxynCore.metrics();
+      document.getElementById("mUsers").textContent = m.total;
+      document.getElementById("mFree").textContent = m.free;
+      document.getElementById("mEssential").textContent = m.essential;
+      document.getElementById("mUltimate").textContent = m.ultimate;
+      document.getElementById("mConv").textContent = m.conversion + "%";
+      document.getElementById("mCancel").textContent = m.canceled;
+      document.getElementById("mMon").textContent = m.monitoredTotal;
+      document.getElementById("mAlerts").textContent = m.alertTotal;
+      document.getElementById("mEco").textContent = fmtReais(m.economyTotal);
+    }
+
+    function renderLimits() {
+      const box = document.getElementById("foxLimits");
+      box.innerHTML = "";
+      const feats = [
+        { key: "benchmark_monthly_limit", label: "Benchmark por mês" },
+        { key: "price_monitor_limit", label: "Produtos monitorados" },
+        { key: "preco_pesquisa_limit", label: "Pesquisas de preço" }
+      ];
+      feats.forEach((f) => {
+        ["free", "essential", "ultimate"].forEach((plan) => {
+          const cur = FoxynCore.limit(f.key, plan);
+          const row = document.createElement("div");
+          row.className = "limit-editor";
+          row.innerHTML = `
+            <span class="feat">${f.label}</span>
+            <span class="fox-badge fox-badge--plan">${plan.toUpperCase()}</span>
+            <input type="number" min="0" class="fox-input" value="${cur === null ? "" : cur}" placeholder="ilimitado" data-key="${f.key}" data-plan="${plan}" style="width:90px">
+            <button class="fox-btn fox-btn--secondary" style="padding:8px 12px" onclick="saveLimit('${f.key}','${plan}')">Salvar</button>
+          `;
+          box.appendChild(row);
+        });
+      });
+    }
+
+    function saveLimit(key, plan) {
+      const input = document.querySelector(`input[data-key="${key}"][data-plan="${plan}"]`);
+      const val = input ? input.value : "";
+      const res = FoxynCore.setLimit(key, plan, val === "" ? "" : (val === "0" ? 0 : val));
+      FOXYN.toast(res.ok ? "Limite atualizado 🦊" : res.msg, res.ok ? "success" : "error");
+    }
+
+    function renderUsers() {
+      const tbody = document.getElementById("usersBody");
+      const users = (function () {
+        try { return JSON.parse(localStorage.getItem("gs_users") || "[]"); } catch { return []; }
+      })();
+      tbody.innerHTML = "";
+      users.forEach((u) => {
+        const plan = FoxynCore.planIdOf({ username: u.username, plan: u.plan, role: u.role });
+        const tr = document.createElement("tr");
+        const tdName = document.createElement("td"); tdName.textContent = u.username;
+        const tdPlan = document.createElement("td");
+        tdPlan.innerHTML = `<span class="fox-badge ${plan==="ultimate"?"fox-badge--ult":plan==="essential"?"fox-badge--ult":"fox-badge--plan"}">${plan.toUpperCase()}</span>`;
+        const tdDate = document.createElement("td");
+        tdDate.textContent = u.createdAt ? new Date(u.createdAt).toLocaleDateString("pt-BR") : "—";
+        tr.append(tdName, tdPlan, tdDate);
+        tbody.appendChild(tr);
+      });
+      if (!users.length) {
+        tbody.innerHTML = '<tr><td colspan="3" style="color:var(--fox-muted-2)">Nenhum usuário cadastrado além do admin.</td></tr>';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#080808">
-  <title>Planos — FOXYN</title>
+  <title>Planos & Assinatura — FOXYN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -14,6 +14,8 @@
     .plan-card { display:flex; flex-direction:column; background:var(--fox-surface); border:1px solid var(--fox-border); border-radius:var(--fox-radius-xl); padding:28px 26px; position:relative; transition:transform var(--fox-t-med),border-color var(--fox-t-med),box-shadow var(--fox-t-med); }
     .plan-card.recommended { border-color:var(--fox-orange); box-shadow:var(--fox-glow); transform:scale(1.03); }
     .plan-card.recommended .plan-flag { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--fox-orange),var(--fox-orange-light)); color:#fff; padding:5px 14px; border-radius:var(--fox-radius-pill); font-size:var(--fox-fs-xs); font-weight:700; letter-spacing:0.06em; }
+    .plan-card.current { border-color:var(--fox-success); }
+    .plan-card.current::after { content:'✓ PLANO ATUAL'; position:absolute; top:-12px; right:16px; background:var(--fox-success); color:#fff; padding:5px 12px; border-radius:var(--fox-radius-pill); font-size:var(--fox-fs-xs); font-weight:700; letter-spacing:0.06em; }
     .plan-name { font-family:var(--fox-font-display); font-weight:700; font-size:var(--fox-fs-xl); }
     .plan-tagline { font-size:var(--fox-fs-sm); color:var(--fox-muted); margin-bottom:16px; }
     .plan-price { display:flex; align-items:baseline; gap:4px; margin-bottom:18px; }
@@ -25,6 +27,8 @@
     .plan-feats li strong { color:var(--fox-text); }
     .plan-feats li .no { color:var(--fox-muted-2); }
     .plan-cta { width:100%; }
+    .sub-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:28px; }
+    @media (max-width:820px){ .sub-grid{grid-template-columns:1fr;} .fox-checkout{grid-template-columns:1fr;} }
   </style>
 </head>
 <body data-fox-page="planos" data-fox-sidebar="1">
@@ -32,58 +36,53 @@
     <div class="fox-page-header" style="text-align:center;max-width:640px;margin:0 auto 32px">
       <div style="font-family:var(--fox-font-display);font-weight:700;color:var(--fox-orange);letter-spacing:0.1em;text-transform:uppercase;font-size:var(--fox-fs-xs);margin-bottom:8px">Planos Foxyn</div>
       <h1>Escolha o nível da sua inteligência</h1>
-      <p>De experimentar o básico a decidir melhor com dados completos. Cancele quando quiser.</p>
+      <p>De experimentar o básico a decidir melhor com dados completos. Alterne entre planos quando quiser.</p>
     </div>
 
-    <div class="plan-grid">
-      <!-- FREE -->
-      <div class="plan-card">
-        <div class="plan-name">FREE</div>
-        <div class="plan-tagline">EXPERIMENTE</div>
-        <div class="plan-price"><span class="cur">R$</span><span class="val">0</span><span class="per">/mês</span></div>
-        <ul class="plan-feats">
-          <li>✅ <strong>1</strong> análise por dia</li>
-          <li>✅ Estimador de FPS básico</li>
-          <li>❌ <span class="no">Sem Radar de Preços</span></li>
-          <li>❌ <span class="no">Sem Benchmarks detalhados</span></li>
-          <li>❌ <span class="no">Foxyn AI limitada</span></li>
-        </ul>
-        <button class="fox-btn fox-btn--secondary plan-cta" id="planFreeBtn">COMEÇAR AGORA</button>
+    <!-- Minha assinatura -->
+    <div class="sub-grid">
+      <div class="fox-card">
+        <h3 class="fox-card-header">Minha assinatura</h3>
+        <div class="fox-card-body">
+          <div class="sub-plan">
+            <div class="big-emoji">💎</div>
+            <div style="flex:1">
+              <div id="subPlanName" class="fox-display fox-accent" style="font-weight:800;font-size:1.2rem">—</div>
+              <div class="fox-muted" style="font-size:var(--fox-fs-sm)">Status: <span id="subStatus">—</span></div>
+              <div class="fox-muted" style="font-size:var(--fox-fs-sm)">Valor: <span id="subPrice">—</span></div>
+            </div>
+          </div>
+          <div class="limit-bar">
+            <div class="top"><span>Benchmark neste mês</span><span id="bmUsage">—</span></div>
+            <div class="fox-progress"><div class="fill" id="bmBar" style="width:0%"></div></div>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="fox-btn fox-btn--secondary" onclick="FoxynUI.subManage()">🔧 Gerenciar pagamento</button>
+            <button class="fox-btn fox-btn--danger" onclick="FoxynUI.subCancel()">Cancelar assinatura</button>
+          </div>
+        </div>
       </div>
 
-      <!-- ESSENTIAL (recomendado) -->
-      <div class="plan-card recommended" id="planEssential">
-        <span class="plan-flag">👑 RECOMENDADO</span>
-        <div class="plan-name">ESSENTIAL</div>
-        <div class="plan-tagline">OTIMIZE</div>
-        <div class="plan-price"><span class="cur">R$</span><span class="val">19,90</span><span class="per">/mês</span></div>
-        <ul class="plan-feats">
-          <li>✅ Análises <strong>ilimitadas</strong></li>
-          <li>✅ <strong>Radar de Preços</strong> completo</li>
-          <li>✅ <strong>Benchmarks detalhados</strong> + gráficos</li>
-          <li>✅ Foxyn AI <strong>avançada</strong></li>
-          <li>✅ Alertas de preço personalizados</li>
-        </ul>
-        <button class="fox-btn fox-btn--primary plan-cta" id="planEssentialBtn">ASSINAR ESSENTIAL</button>
-      </div>
-
-      <!-- ULTIMATE -->
-      <div class="plan-card">
-        <div class="plan-name">ULTIMATE</div>
-        <div class="plan-tagline">DECIDA MELHOR</div>
-        <div class="plan-price"><span class="cur">R$</span><span class="val">39,90</span><span class="per">/mês</span></div>
-        <ul class="plan-feats">
-          <li>✅ Tudo do <strong>Essential</strong></li>
-          <li>✅ <strong>Comparativos completos</strong></li>
-          <li>✅ Suporte <strong>prioritário</strong></li>
-          <li>✅ Foxyn AI <strong>Ultimate</strong> (previsões)</li>
-          <li>✅ Relatório mensal de performance</li>
-        </ul>
-        <button class="fox-btn fox-btn--secondary plan-cta" id="planUltimateBtn">ASSINAR ULTIMATE</button>
+      <div class="fox-card">
+        <h3 class="fox-card-header">Próxima cobrança & pagamento</h3>
+        <div class="fox-card-body">
+          <div class="sum-row"><span>Próxima cobrança</span><span id="subNext">—</span></div>
+          <div class="sum-row"><span>Periodicidade</span><span id="subPeriod">Mensal</span></div>
+          <div class="sum-row"><span>Forma de pagamento</span><span id="subMethod">—</span></div>
+          <div class="sum-row"><span>Gateway</span><span id="subGateway">simulado</span></div>
+          <div class="fox-why" style="margin-top:14px">
+            Ambiente de demonstração estático: a assinatura simula o contrato de um gateway real.
+            Nenhum dado de cartão é coletado nem armazenado. Em produção, a cobrança seria feita
+            pelo gateway escolhido (Pix/Cartão) via backend.
+          </div>
+        </div>
       </div>
     </div>
 
-    <p style="text-align:center;color:var(--fox-muted);font-size:var(--fox-fs-sm);margin-top:28px">Ambiente de demonstração — nenhum valor é cobrado.</p>
+    <!-- Planos -->
+    <div class="plan-grid" id="planGrid"></div>
+
+    <p style="text-align:center;color:var(--fox-muted);font-size:var(--fox-fs-sm);margin-top:28px">🦊 A raposa guia as suas decisões — os números vêm de dados da plataforma, sem invenção.</p>
   </main>
 
   <div id="foxLogin" class="fox-overlay-modal hidden">
@@ -96,24 +95,251 @@
     </div>
   </div>
 
+  <!-- Checkout modal -->
+  <div id="checkoutModal" class="fox-overlay-modal hidden">
+    <div class="fox-modal" style="width:760px;max-width:96vw;max-height:92vh;overflow:auto">
+      <div class="fox-checkout">
+        <div>
+          <h3 id="checkoutTitle">Confirmar assinatura</h3>
+          <p class="fox-muted" style="font-size:var(--fox-fs-sm);margin-bottom:18px" id="checkoutSub">Revise os dados antes de confirmar.</p>
+
+          <div style="font-weight:700;margin-bottom:8px">Forma de pagamento</div>
+          <div class="pay-methods">
+            <label><input type="radio" name="ckMethod" value="pix" checked><span>Pix</span></label>
+            <label><input type="radio" name="ckMethod" value="card"><span>Cartão</span></label>
+          </div>
+
+          <div id="ckPix" class="fox-field">
+            <label>Chave Pix (demonstração)</label>
+            <input id="ckPixKey" class="fox-input" placeholder="sua chave pix" style="width:100%">
+            <span class="hint">Nenhum valor é cobrado neste ambiente.</span>
+          </div>
+
+          <div id="ckCard" class="fox-field" hidden>
+            <label>Número do cartão</label>
+            <input id="ckCardNum" class="fox-input" placeholder="0000 0000 0000 0000" style="width:100%" autocomplete="cc-number">
+            <div style="display:flex;gap:10px">
+              <div class="fox-field"><label>Validade</label><input id="ckCardExp" class="fox-input" placeholder="MM/AA" style="width:120px"></div>
+              <div class="fox-field"><label>CVV</label><input id="ckCardCvv" class="fox-input" placeholder="123" style="width:90px"></div>
+              <div class="fox-field" style="flex:1"><label>Titular</label><input id="ckCardName" class="fox-input" placeholder="Nome impresso" style="width:100%"></div>
+            </div>
+            <span class="hint">Validação simulada. Cartão nunca é armazenado no frontend.</span>
+          </div>
+
+          <div class="fox-form-msg" id="ckMsg"></div>
+        </div>
+
+        <div class="summary">
+          <div style="font-weight:700;margin-bottom:6px">Resumo</div>
+          <div class="sum-row"><span id="ckPlan">Plano</span><span id="ckPlanVal">—</span></div>
+          <div class="sum-row"><span>Periodicidade</span><span>Mensal</span></div>
+          <div class="sum-row"><span id="ckFrom">De</span><span id="ckFromVal">—</span></div>
+          <div class="sum-row"><span>Total mensal</span><span class="total-blue" id="ckTotal">R$ 0</span></div>
+          <button class="fox-btn fox-btn--primary fox-btn--block" style="margin-top:16px" id="ckConfirmBtn">Confirmar assinatura</button>
+          <button class="fox-btn fox-btn--ghost fox-btn--block" style="margin-top:8px" onclick="FoxynUI.closeCheckout()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/foxyn.js"></script>
+  <script src="js/foxyn-core.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const doAssinar = (plano) => {
-        if (!FOXYN.gate()) return;
+      if (!FOXYN.gate()) return;
+      FoxynUI.init();
+    });
+
+    window.FoxynUI = {
+      init() {
+        this.renderSub();
+        this.renderPlans();
+        this.bindCheckout();
+      },
+
+      planMeta(id) {
+        const map = {
+          free: { name: "FREE", tag: "EXPERIMENTE", val: "0", emoji: "🔓" },
+          essential: { name: "ESSENTIAL", tag: "OTIMIZE", val: "19,90", emoji: "🚀" },
+          ultimate: { name: "ULTIMATE", tag: "DECIDA MELHOR", val: "39,90", emoji: "👑" }
+        };
+        return map[id];
+      },
+
+      renderSub() {
         const user = FOXYN.currentUser();
-        const meta = { ultimate: ["ULTIMATE", "fox-badge--ult"], essential: ["ESSENTIAL", "fox-badge--ult"] }[plano] || ["FREE", "fox-badge--plan"];
-        // Atualiza a sessão do legado (auth.js) e a Foxyn
-        const s = { username: user.username, plan: plano, role: user.role };
+        const sub = FoxynCore.ensureSubscription(user);
+        const planId = FoxynCore.planIdOf(user);
+        const meta = this.planMeta(planId);
+
+        const planName = document.getElementById("subPlanName");
+        planName.textContent = meta.name + " · " + meta.tag;
+
+        document.getElementById("subStatus").textContent =
+          sub.status === "active" ? "Ativo" : sub.status === "canceled" ? "Cancelado" : sub.status;
+        document.getElementById("subPrice").textContent = fmtReais(sub.price);
+        document.getElementById("subNext").textContent = new Date(sub.nextCharge).toLocaleDateString("pt-BR");
+        document.getElementById("subMethod").textContent = sub.paymentMethod || "—";
+        document.getElementById("subGateway").textContent = sub.gateway;
+
+        // Uso do benchmark vs limite
+        const verif = FoxynCore.verify("benchmark");
+        const used = verif.used || 0;
+        const lim = verif.limit;
+        document.getElementById("bmUsage").textContent =
+          lim === null ? (used + " (ilimitado)") : (used + " / " + lim + " neste mês");
+        const pct = lim === null ? Math.min(100, used * 8) : Math.min(100, (used / lim) * 100);
+        document.getElementById("bmBar").style.width = pct + "%";
+      },
+
+      renderPlans() {
+        const grid = document.getElementById("planGrid");
+        const user = FOXYN.currentUser();
+        const currentPlan = FoxynCore.planIdOf(user);
+        grid.innerHTML = "";
+
+        ["free", "essential", "ultimate"].forEach((id) => {
+          const meta = this.planMeta(id);
+          const isCurrent = currentPlan === id;
+          const isRec = id === "essential";
+          const feat = FoxynCore.PLANS[id].features;
+          const feats = [
+            "✅ Meu PC + <strong>Diagnóstico</strong>",
+            feat.benchmark ? "✅ <strong>Benchmark</strong>" + (id === "free" ? " <span class='no'>(3/mês)</span>" : "") : "❌ Benchmark",
+            feat.radar_completo ? "✅ <strong>Radar de Preços</strong> completo" : "❌ Radar de Preços completo",
+            feat.buy_score ? "✅ <strong>Buy Score</strong>" + (id === "essential" ? "" : " avançado") : "❌ Buy Score",
+            feat.monitoramento ? `✅ <strong>Monitoramento</strong> (${FoxynCore.limit("price_monitor_limit", id) === null ? "ilimitado" : FoxynCore.limit("price_monitor_limit", id)})` : "❌ Monitoramento",
+            feat.foxyn_ai ? "✅ <strong>Foxyn AI</strong> completa" : "❌ Foxyn AI",
+            feat.alertas_inteligentes ? "✅ <strong>Alertas inteligentes</strong>" : "❌ Alertas inteligentes",
+            feat.monte_meu_pc ? "✅ <strong>Monte Meu PC</strong>" : "❌ Monte Meu PC",
+            feat.presets ? "✅ <strong>Presets de jogos</strong>" : "❌ Presets de jogos",
+            feat.relatorios ? "✅ <strong>Relatórios</strong>" : "❌ Relatórios"
+          ].slice(0, 8).join("</li><li>");
+
+          const card = document.createElement("div");
+          card.className = "plan-card " + (isCurrent ? "current " : "") + (isRec && !isCurrent ? "recommended" : "");
+          card.innerHTML = (isRec && !isCurrent ? '<span class="plan-flag">👑 RECOMENDADO</span>' : "") +
+            `<div class="plan-name">${meta.name}</div>
+             <div class="plan-tagline">${meta.tag}</div>
+             <div class="plan-price"><span class="cur">R$</span><span class="val">${meta.val}</span><span class="per">/mês</span></div>
+             <ul class="plan-feats"><li>${feats}</li></ul>
+             <button class="fox-btn ${isCurrent ? "fox-btn--ghost" : (isRec ? "fox-btn--primary" : "fox-btn--secondary")} plan-cta" data-plan="${id}" ${isCurrent ? "disabled" : ""}>
+               ${isCurrent ? "✓ Plano atual" : id === "free" ? "MIGRAR PARA FREE" : "ASSINAR " + meta.name}
+             </button>`;
+          grid.appendChild(card);
+        });
+
+        grid.querySelectorAll(".plan-cta").forEach((btn) =>
+          btn.addEventListener("click", () => this.openCheckout(btn.dataset.plan))
+        );
+      },
+
+      openCheckout(target) {
+        const user = FOXYN.currentUser();
+        const from = FoxynCore.planIdOf(user);
+        const meta = this.planMeta(target);
+
+        document.getElementById("checkoutTitle").textContent =
+          (target === "free") ? "Migrar para o plano " + meta.name
+          : "Assinar o plano " + meta.name;
+        document.getElementById("checkoutSub").textContent =
+          (from === "free" ? "Começando do plano FREE." :
+           from === target ? "Você já está neste plano." :
+           "Alterando de " + this.planMeta(from).name + " → " + meta.name + ".") + " Revise antes de confirmar.";
+
+        document.getElementById("ckPlanVal").textContent = meta.name;
+        document.getElementById("ckTotal").textContent = "R$ " + meta.val;
+        document.getElementById("ckFromVal").textContent = this.planMeta(from).name;
+        document.getElementById("ckMsg").textContent = "";
+        document.getElementById("checkoutModal").hidden = false;
+        window._ckTarget = target;
+        this.togglePayArea();
+      },
+
+      togglePayArea() {
+        const method = document.querySelector('input[name="ckMethod"]:checked').value;
+        document.getElementById("ckPix").hidden = method !== "pix";
+        document.getElementById("ckCard").hidden = method !== "card";
+      },
+
+      bindCheckout() {
+        document.querySelectorAll('input[name="ckMethod"]').forEach((r) =>
+          r.addEventListener("change", () => this.togglePayArea())
+        );
+        document.getElementById("ckConfirmBtn").addEventListener("click", () => this.confirmCheckout());
+      },
+
+      confirmCheckout() {
+        const user = FOXYN.currentUser();
+        if (!user || window._ckTarget === undefined) return;
+        const target = window._ckTarget;
+        const method = document.querySelector('input[name="ckMethod"]:checked').value;
+
+        if (method === "card") {
+          const num = document.getElementById("ckCardNum").value.trim();
+          const exp = document.getElementById("ckCardExp").value.trim();
+          const cvv = document.getElementById("ckCardCvv").value.trim();
+          const name = document.getElementById("ckCardName").value.trim();
+          if (num.length < 12 || !/^\d{2}\/\d{2}$/.test(exp) || cvv.length < 3 || !name) {
+            const m = document.getElementById("ckMsg");
+            m.textContent = "Preencha os dados do cartão para continuar.";
+            m.className = "fox-form-msg error";
+            return;
+          }
+        }
+
+        const btn = document.getElementById("ckConfirmBtn");
+        btn.disabled = true;
+        btn.textContent = "Processando...";
+
+        setTimeout(() => {
+          const res = FoxynCore.changePlan(user, target, { mode: "checkout", method });
+          const m = document.getElementById("ckMsg");
+          if (!res.ok) {
+            m.textContent = res.msg;
+            m.className = "fox-form-msg error";
+            btn.disabled = false;
+            btn.textContent = "Confirmar assinatura";
+            return;
+          }
+          // Sincroniza sessão pública (legado + foxyn)
+          const s = { username: user.username, plan: target, role: user.role };
+          FOXYN.set("session", s);
+          try { localStorage.setItem("gs_session", JSON.stringify(s)); } catch (e) {}
+          FoxynCore.track(user, "assinatura_criada", { plan: target, method });
+
+          m.textContent = "✅ Assinatura atualizada!";
+          m.className = "fox-form-msg success";
+          FOXYN.toast("🦊 Plano " + this.planMeta(target).name + " ativado!", "success");
+          setTimeout(() => {
+            document.getElementById("checkoutModal").hidden = true;
+            btn.disabled = false;
+            btn.textContent = "Confirmar assinatura";
+            this.renderSub();
+            this.renderPlans();
+          }, 1200);
+        }, 1200);
+      },
+
+      closeCheckout() {
+        document.getElementById("checkoutModal").hidden = true;
+      },
+
+      subManage() {
+        FOXYN.toast("Integração com gateway será configurada no backend.", "info");
+      },
+      subCancel() {
+        if (!confirm("Cancelar a assinatura paga? Você voltará ao plano FREE.")) return;
+        const user = FOXYN.currentUser();
+        FoxynCore.cancelSubscription(user);
+        const s = { username: user.username, plan: "free", role: user.role };
         FOXYN.set("session", s);
         try { localStorage.setItem("gs_session", JSON.stringify(s)); } catch (e) {}
-        FOXYN.toast("🦊 Plano " + meta[0] + " ativado! Aproveite a sua nova inteligência.", "success");
-        setTimeout(() => { window.location.href = "dashboard.html"; }, 1200);
-      };
-      document.getElementById("planFreeBtn").addEventListener("click", () => doAssinar("free"));
-      document.getElementById("planEssentialBtn").addEventListener("click", () => doAssinar("essential"));
-      document.getElementById("planUltimateBtn").addEventListener("click", () => doAssinar("ultimate"));
-    });
+        FOXYN.toast("Assinatura cancelada. Você está no plano FREE.", "info");
+        this.renderSub();
+        this.renderPlans();
+      }
+    };
   </script>
 </body>
 </html>

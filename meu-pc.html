@@ -9,84 +9,116 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/foxyn.css">
+  <style>
+    .comp-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .comp-card { background:var(--fox-surface); border:1px solid var(--fox-border); border-radius:var(--fox-radius-lg); padding:18px; }
+    .comp-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .comp-card .score-num { font-family:var(--fox-font-display); font-weight:800; font-size:var(--fox-fs-2xl); }
+    .comp-card .meta { font-size:var(--fox-fs-xs); color:var(--fox-muted); margin-bottom:12px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .chip { padding:6px 12px; background:var(--fox-surface-2); border:1px solid var(--fox-border); border-radius:var(--fox-radius-pill); font-size:var(--fox-fs-xs); color:var(--fox-muted); }
+    .chip.on { border-color:var(--fox-orange); color:var(--fox-orange); background:var(--fox-orange-soft); }
+    .empty-hw { color:var(--fox-muted-2); font-size:var(--fox-fs-sm); font-style:italic; }
+  </style>
 </head>
 <body data-fox-page="meu-pc" data-fox-sidebar="1">
   <main class="fox-main">
     <div class="fox-page-header">
       <h1>Meu PC</h1>
-      <p>Perfil completo da sua máquina. Visualize componentes e desempenho.</p>
+      <p>Perfil completo da sua máquina. Configure seus componentes e veja o diagnóstico.</p>
     </div>
 
-    <!-- PC Score destacado -->
-    <div class="fox-card fox-card--accent" style="display:flex;align-items:center;gap:24px;margin-bottom:18px">
-      <div id="foxPcScore"></div>
-      <div>
-        <h3>Seu PC em uma visão</h3>
-        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Configuração balanceada com bom desempenho em 1080p/1440p.</p>
-        <span class="fox-badge fox-badge--perf" style="margin-top:6px">⚡ PRONTO PARA RODAR</span>
+    <!-- ===== ONBOARDING (config PC) ===== -->
+    <div id="foxOnboarding" class="fox-card hidden" style="max-width:680px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+        <div class="fox-mascot fox-mascot--sm">🦊</div>
+        <h3>Configure seu PC</h3>
+      </div>
+      <p class="fox-muted" style="font-size:var(--fox-fs-sm);margin-bottom:18px">Para eu analisar sua máquina com precisão, me conte o que você tem. Dados salvos apenas neste navegador.</p>
+
+      <div class="ob-dots" id="obDots"></div>
+
+      <!-- Passo 1: CPU -->
+      <div class="ob-step active" data-step="0">
+        <div class="fox-field"><label>Qual o seu processador (CPU)?</label><select id="obCpu" class="fox-input" style="width:100%"></select></div>
+        <button class="fox-btn fox-btn--primary fox-btn--block" onclick="FoxynPC.nextStep()">Continuar →</button>
+      </div>
+
+      <!-- Passo 2: GPU -->
+      <div class="ob-step" data-step="1">
+        <div class="fox-field"><label>Qual a sua placa de vídeo (GPU)?</label><select id="obGpu" class="fox-input" style="width:100%"></select></div>
+        <div style="display:flex;gap:10px">
+          <button class="fox-btn fox-btn--ghost" onclick="FoxynPC.prevStep()">← Voltar</button>
+          <button class="fox-btn fox-btn--primary fox-btn--block" onclick="FoxynPC.nextStep()">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- Passo 3: RAM + Armazenamento -->
+      <div class="ob-step" data-step="2">
+        <div class="fox-field"><label>Quanta memória RAM?</label><select id="obRam" class="fox-input" style="width:100%"></select></div>
+        <div class="fox-field"><label>Seu armazenamento principal</label><select id="obStorage" class="fox-input" style="width:100%">
+          <option value="nvme">SSD NVMe</option>
+          <option value="sata">SSD SATA</option>
+          <option value="hdd">HDD</option>
+        </select></div>
+        <div style="display:flex;gap:10px">
+          <button class="fox-btn fox-btn--ghost" onclick="FoxynPC.prevStep()">← Voltar</button>
+          <button class="fox-btn fox-btn--primary fox-btn--block" onclick="FoxynPC.nextStep()">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- Passo 4: Resolução -->
+      <div class="ob-step" data-step="3">
+        <div class="fox-field"><label>Qual resolução você usa?</label><select id="obRes" class="fox-input" style="width:100%"></select></div>
+        <div style="display:flex;gap:10px">
+          <button class="fox-btn fox-btn--ghost" onclick="FoxynPC.prevStep()">← Voltar</button>
+          <button class="fox-btn fox-btn--primary fox-btn--block" onclick="FoxynPC.nextStep()">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- Passo 5: Jogos -->
+      <div class="ob-step" data-step="4">
+        <div class="fox-field"><label>Quais jogos você costuma jogar? (opcional, toque para selecionar)</label></div>
+        <div class="chips" id="obGames" style="margin-bottom:18px"></div>
+        <div style="display:flex;gap:10px">
+          <button class="fox-btn fox-btn--ghost" onclick="FoxynPC.prevStep()">← Voltar</button>
+          <button class="fox-btn fox-btn--primary fox-btn--block" onclick="FoxynPC.finish()">Finalizar 🦊</button>
+        </div>
       </div>
     </div>
 
-    <!-- Componentes -->
-    <div class="fox-grid fox-grid--auto" style="margin-bottom:18px">
-      <div class="fox-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-          <h3>CPU</h3><span style="font-size:1.4rem">🧠</span>
+    <!-- ===== PERFIL (após config) ===== -->
+    <div id="foxProfile" class="hidden">
+      <!-- PC Score destacado -->
+      <div class="fox-card fox-card--accent" style="display:flex;align-items:center;gap:24px;margin-bottom:18px;flex-wrap:wrap">
+        <div id="foxPcScore"></div>
+        <div style="flex:1;min-width:240px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <h3 style="margin:0">Seu PC em uma visão</h3>
+            <button class="fox-btn fox-btn--ghost" style="font-size:var(--fox-fs-xs)" onclick="FoxynPC.edit()">✏️ Editar</button>
+          </div>
+          <p class="fox-display fox-accent" style="font-weight:800;font-size:1.4rem;margin:6px 0" id="pcTitle">—</p>
+          <div class="fox-why" id="pcWhy" style="margin-top:0"></div>
         </div>
-        <div class="fox-display" style="font-weight:700">Ryzen 7 5700X</div>
-        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">8 núcleos / 16 threads</div>
-        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Temperatura</span><strong><span class="fox-accent">62°</span></strong></div>
-        <div class="fox-progress fox-progress--warning"><div class="fill" style="width:62%"></div></div>
       </div>
 
-      <div class="fox-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-          <h3>GPU</h3><span style="font-size:1.4rem">🎮</span>
+      <!-- Upgrade recomendado -->
+      <div class="fox-grid fox-grid--2" style="margin-bottom:18px">
+        <div class="fox-card fox-card--accent">
+          <h3 class="fox-card-header">⬆️ Próximo upgrade recomendado</h3>
+          <div class="fox-card-body">
+            <div class="fox-display fox-accent" id="upgName" style="font-size:1.3rem;font-weight:800">—</div>
+            <p class="fox-muted" id="upgReason" style="font-size:var(--fox-fs-sm);margin-top:6px">—</p>
+          </div>
         </div>
-        <div class="fox-display" style="font-weight:700">RTX 4070 12GB</div>
-        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">NVIDIA / VRAM 12GB</div>
-        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Temperatura</span><strong><span class="fox-accent">68°</span></strong></div>
-        <div class="fox-progress fox-progress--warning"><div class="fill" style="width:68%"></div></div>
+        <div class="fox-card">
+          <h3 class="fox-card-header">🧠 Diagnóstico</h3>
+          <div class="fox-card-body" id="foxDiag"><!-- preenchido --></div>
+        </div>
       </div>
 
-      <div class="fox-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-          <h3>RAM</h3><span style="font-size:1.4rem">💾</span>
-        </div>
-        <div class="fox-display" style="font-weight:700">32GB DDR5</div>
-        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">6000 MT/s · Dual channel</div>
-        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Uso</span><strong>12/32GB</strong></div>
-        <div class="fox-progress"><div class="fill" style="width:38%"></div></div>
-      </div>
-
-      <div class="fox-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-          <h3>SSD</h3><span style="font-size:1.4rem">⚡</span>
-        </div>
-        <div class="fox-display" style="font-weight:700">NVMe 1TB Gen4</div>
-        <div style="font-size:var(--fox-fs-sm);color:var(--fox-muted);margin-bottom:10px">Samsung · 7000 MB/s leitura</div>
-        <div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-sm);margin-bottom:6px"><span class="fox-muted">Armazenamento</span><strong>480/1000GB</strong></div>
-        <div class="fox-progress"><div class="fill" style="width:48%"></div></div>
-      </div>
-    </div>
-
-    <!-- Performance geral -->
-    <div class="fox-card">
-      <h3 class="fox-card-header">Performance geral</h3>
-      <div class="fox-card-body">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--fox-border)">
-          <span class="fox-muted">Desempenho em 1080p</span>
-          <span class="fox-badge fox-badge--perf">⚡ EXCELENTE</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--fox-border)">
-          <span class="fox-muted">Desempenho em 1440p</span>
-          <span class="fox-badge fox-badge--ult">👑 ALTO</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0">
-          <span class="fox-muted">Desempenho em 4K</span>
-          <span class="fox-badge fox-badge--wait">MÉDIO</span>
-        </div>
-      </div>
+      <!-- Componentes -->
+      <div class="comp-grid" id="foxComps"></div>
     </div>
   </main>
 
@@ -95,19 +127,301 @@
       <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
         <div class="fox-mascot fox-mascot--lg">🦊</div>
         <h3>Entre para continuar</h3>
-        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Faça login para ver o perfil completo do seu PC.</p>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Faça login para configurar e analisar o seu PC.</p>
         <a href="index.html" class="fox-btn fox-btn--primary fox-btn--block">Acessar conta</a>
       </div>
     </div>
   </div>
 
+  <script src="js/data.js"></script>
   <script src="js/foxyn.js"></script>
-  <script src="js/foxyn-data.js"></script>
+  <script src="js/foxyn-core.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (!FOXYN.gate()) return;
-      document.getElementById("foxPcScore").innerHTML = FOXYN.scoreRing(foxynPCScore(), "PRONTO");
-    });
+    // ---------- Modelo de pontuação (derivado apenas dos catálogos reais) ----------
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+    function compScore(component) {
+      // CPU/GPU: normaliza o índice do catálogo (dados reais do projeto)
+      if (component === "cpu") return (o) => o ? clamp(Math.round((o.score / 140) * 100), 5, 100) : null;
+      if (component === "gpu") return (o) => o ? clamp(Math.round((o.score / 200) * 100), 5, 100) : null;
+      if (component === "ram") return (gb) => gb == null ? null : ({ 8: 55, 12: 70, 16: 90, 24: 95, 32: 97, 64: 98 }[gb] ?? 90);
+      if (component === "storage") return (s) => s ? ({ nvme: 92, sata: 76, hdd: 45 }[s] ?? 60) : null;
+      return () => null;
+    }
+
+    function compLabel(comp) {
+      return { cpu: "CPU", gpu: "GPU", ram: "RAM", storage: "Armazenamento", temp: "Temperatura", otim: "Otimização" }[comp] || comp;
+    }
+
+    // Explicação honesta do "porquê" de cada nota
+    function compWhy(comp, val, pc) {
+      const obj = {
+        cpu: () => {
+          const c = CPUS.find((x) => x.id === pc.cpuId);
+          if (!c || val == null) return "Sem dados suficientes de CPU para afirmar.";
+          const best = Math.max(...CPUS.map((x) => x.score));
+          return val >= 85
+            ? "Seu processador está entre os mais fortes do catálogo, com ampla folga para segurar uma GPU potente sem gargalo."
+            : val >= 55
+            ? "Seu processador é adequado, mas pode ser o limite em jogos competitivos (alta taxa de quadros). O maior potencial de ganho pode estar na GPU."
+            : "Seu processador é o componente mais limitado em títulos pesados. Um upgrade de CPU tende a destravar quadros em jogos de mundo aberto.";
+        },
+        gpu: () => {
+          const g = GPUS.find((x) => x.id === pc.gpuId);
+          if (!g || val == null) return "Sem dados suficientes de GPU para afirmar.";
+          return val >= 85
+            ? "Sua GPU é topo de linha no catálogo — é raro ser o gargalo em 1080p/1440p."
+            : val >= 55
+            ? "Sua GPU é equilibrada, mas tende a ser o primeiro limitador quando a resolução sobe. É o upgrade com maior impacto em jogos."
+            : "Sua GPU está abaixo do nível recomendado para títulos modernos com gráficos pesados.";
+        },
+        ram: () => {
+          if (pc.ram == null || val == null) return "Sem dados suficientes de RAM para afirmar.";
+          return val >= 90
+            ? "16 GB ou mais não limita os jogos atuais na grande maioria dos casos."
+            : "Com pouca memória RAM você pode ter travamentos (stutter) mesmo com GPU/CPU bons.";
+        },
+        storage: () => {
+          if (!pc.storage) return "Sem dados de armazenamento.";
+          return pc.storage === "nvme"
+            ? "SSD NVMe reduz carregamentos e evita pop-in em mundos abertos."
+            : pc.storage === "sata"
+            ? "SSD SATA é aceitável, mas um NVMe reduz carregamentos em jogos pesados."
+            : "HDD causa carregamentos longos e pop-in. Considerar migrar para SSD.";
+        },
+        temp: () => "Não há dados de temperatura disponíveis neste ambiente (requer agente/telemetria local). Nenhuma análise é feita sem dados.",
+        otim: () => "Não há dados de estado do sistema para avaliar otimização (drivers, undervolt, etc.). Apenas recomenda-se manter drivers atualizados."
+      };
+      return (obj[comp] ? obj[comp]() : "");
+    }
+
+    function overallScore(parts) {
+      const vals = Object.values(parts).filter((v) => v != null);
+      if (!vals.length) return null;
+      return Math.round(vals.reduce((a, b) => a + b, 0) / vals.length);
+    }
+
+    // Diagnóstico por componente (somente quando há dados)
+    function diagFor(comp, val) {
+      if (val == null) return { ico: "⚪", title: compLabel(comp) + " — sem dados", m: "Sem dados suficientes para avaliar." };
+      if (val >= 75) return { ico: "🟢", title: compLabel(comp) + " — Bom", m: "Não é o limitador do seu desempenho com base nos dados disponíveis." };
+      if (val >= 50) return { ico: "🟡", title: compLabel(comp) + " — Pode limitar", m: "Em alguns cenários (resolução alta ou jogos pesados) este componente pode limitar o FPS." };
+      return { ico: "🔴", title: compLabel(comp) + " — Limitador", m: "É o componente com maior impacto negativo no desempenho atual." };
+    }
+
+    // ---------- UI ----------
+    window.FoxynPC = {
+      pc: null,
+
+      init() {
+        if (!FOXYN.gate()) return;
+        Shell.populateForm();
+        const user = FOXYN.currentUser();
+        const meta = FoxynCore.meta(user);
+        if (meta && meta.pcProfile) {
+          this.pc = meta.pcProfile;
+          this.showProfile();
+        } else {
+          this.showOnboarding();
+        }
+      },
+
+      showOnboarding() {
+        document.getElementById("foxOnboarding").classList.remove("hidden");
+        document.getElementById("foxProfile").classList.add("hidden");
+        Shell.updateDots();
+      },
+
+      showProfile() {
+        const user = FOXYN.currentUser();
+        const meta = FoxynCore.meta(user);
+        meta.pcProfile = this.pc;
+        FoxynCore.saveMeta(user.username, meta);
+
+        document.getElementById("foxOnboarding").classList.add("hidden");
+        document.getElementById("foxProfile").classList.remove("hidden");
+        this.render();
+      },
+
+      edit() {
+        Shell.syncFormFromProfile(this.pc);
+        this.showOnboarding();
+      },
+
+      render() {
+        const pc = this.pc;
+        const user = FOXYN.currentUser();
+
+        const cpu = CPUS.find((x) => x.id === pc.cpuId);
+        const gpu = GPUS.find((x) => x.id === pc.gpuId);
+        const parts = {
+          cpu: compScore("cpu")(cpu),
+          gpu: compScore("gpu")(gpu),
+          ram: compScore("ram")(pc.ram),
+          storage: compScore("storage")(pc.storage),
+          temp: null,
+          otim: null
+        };
+        const overall = overallScore(parts);
+
+        // Score principal
+        document.getElementById("foxPcScore").innerHTML = FOXYN.scoreRing(overall || 0, overall != null ? "SEU PC" : "SEM DADOS");
+        const gpuName = gpu ? gpu.name : "GPU não informada";
+        const cpuName = cpu ? cpu.name : "CPU não informada";
+        const resName = RESOLUTIONS.find((r) => r.id === pc.res)?.name || "resolução não informada";
+        document.getElementById("pcTitle").textContent = cpuName + " + " + gpuName + " · " + (pc.ram || "?") + "GB";
+        document.getElementById("pcWhy").textContent =
+          overall != null
+            ? `Nota calculada pela média dos componentes com dados suficientes (CPU, GPU, RAM e armazenamento). A resolução alvo (${resName}) influencia a demanda sobre a GPU. Sem inventar resultados: componentes sem telemetria ficam fora da média.`
+            : "Sem dados suficientes para calcular um PC Score. Configure CPU, GPU, RAM e armazenamento.";
+
+        // Upgrade recomendado (só com base em dados)
+        const entries = Object.entries(parts).filter(([k, v]) => k !== "temp" && k !== "otim" && v != null);
+        let upgName = "—", upgReason = "Configure ao menos CPU e GPU para obter uma recomendação.";
+        if (entries.length >= 2) {
+          entries.sort((a, b) => a[1] - b[1]);
+          const weakest = entries[0];
+          upgName = weakest[0] === "gpu" ? "GPU (Placa de vídeo)" : compLabel(weakest[0]);
+          upgReason = `É atualmente o maior limitador do seu desempenho (nota ${weakest[1]}). ${compWhy(weakest[0], weakest[1], pc)} Consulte o Radar de Preços para acompanhar a melhor oportunidade.`;
+        }
+        document.getElementById("upgName").textContent = upgName;
+        document.getElementById("upgReason").textContent = upgReason;
+
+        // Diagnóstico
+        const diag = document.getElementById("foxDiag");
+        diag.innerHTML = "";
+        ["cpu", "gpu", "ram", "storage", "temp", "otim"].forEach((k) => {
+          const d = diagFor(k, parts[k]);
+          const row = document.createElement("div");
+          row.className = "diag-row";
+          row.innerHTML = `<div class="diag-ico">${d.ico}</div><div class="diag-body"><div class="t">${d.title}</div><div class="m">${d.m}</div></div>`;
+          diag.appendChild(row);
+        });
+
+        // Cards de componentes
+        const comps = document.getElementById("foxComps");
+        comps.innerHTML = "";
+        const defs = [
+          { k: "cpu", ico: "🧠", name: cpuName, metaLines: cpu ? cpu.group : "—", temp: FOXYN_HW.cpu.temp },
+          { k: "gpu", ico: "🎮", name: gpuName, metaLines: gpu ? gpu.name + " · VRAM " + (gpu.vram || "?") + "GB" : "—", temp: FOXYN_HW.gpu.temp },
+          { k: "ram", ico: "💾", name: (pc.ram || "?") + "GB RAM", metaLines: "Dual channel (estimativa)", temp: null },
+          { k: "storage", ico: "⚡", name: { nvme: "SSD NVMe", sata: "SSD SATA", hdd: "HDD" }[pc.storage] || "—", metaLines: pc.storage === "nvme" ? "7000 MB/s leitura" : pc.storage === "sata" ? "550 MB/s" : "—", temp: null }
+        ];
+        defs.forEach((d) => {
+          const val = parts[d.k];
+          const card = document.createElement("div");
+          card.className = "comp-card";
+          card.innerHTML = `
+            <div class="comp-head"><span><h3 style="margin:0">${d.ico} ${compLabel(d.k)}</h3></span>
+              <span class="score-num ${val!=null ? (val>=75?"fox-accent":val>=50?"#e8a63d":"#ff5470") : ""}">${val!=null?val:"–"}</span></div>
+            <div class="meta">${d.name}<br>${d.metaLines}</div>
+            ${d.temp!=null?`<div style="display:flex;justify-content:space-between;font-size:var(--fox-fs-xs);margin-bottom:6px"><span class="fox-muted">Temperatura</span><strong><span class="fox-accent">${d.temp}°</span></strong></div><div class="fox-progress fox-progress--warning"><div class="fill" style="width:${d.temp}%"></div></div>`:""}
+            ${val!=null?`<div class="fox-why" style="margin-top:10px">${compWhy(d.k, val, pc)}</div>`:""}`
+          ;
+          comps.appendChild(card);
+        });
+      }
+    };
+
+    // ---------- Formulário / Stepper ----------
+    const Shell = {
+      step: 0,
+      steps: 5,
+      selGames: new Set(),
+
+      populateForm() {
+        Shell.fillSelect("obCpu", CPUS, "name");
+        Shell.fillSelect("obGpu", GPUS, "name");
+        const ramSel = document.getElementById("obRam");
+        RAM_OPTIONS.forEach((r) => {
+          const o = document.createElement("option");
+          o.value = r.value; o.textContent = r.label;
+          ramSel.appendChild(o);
+        });
+        Shell.fillSelect("obRes", RESOLUTIONS, "name");
+        GAMES.forEach((g) => {
+          const c = document.createElement("button");
+          c.type = "button";
+          c.className = "chip";
+          c.textContent = g.name;
+          c.dataset.id = g.id;
+          c.addEventListener("click", () => {
+            Shell.selGames.has(g.id) ? Shell.selGames.delete(g.id) : Shell.selGames.add(g.id);
+            c.classList.toggle("on", Shell.selGames.has(g.id));
+          });
+          document.getElementById("obGames").appendChild(c);
+        });
+      },
+
+      fillSelect(id, items, labelKey) {
+        const sel = document.getElementById(id);
+        let group = null, og = null;
+        items.forEach((it) => {
+          if (it.group !== group) {
+            group = it.group;
+            og = document.createElement("optgroup");
+            og.label = it.group;
+            sel.appendChild(og);
+          }
+          const opt = document.createElement("option");
+          opt.value = it.id;
+          opt.textContent = it[labelKey];
+          og.appendChild(opt);
+        });
+      },
+
+      updateDots() {
+        const dots = document.getElementById("obDots");
+        dots.innerHTML = "";
+        for (let i = 0; i < this.steps; i++) {
+          const d = document.createElement("span");
+          d.className = "d" + (i === FoxynPC._step ? " on" : "");
+          dots.appendChild(d);
+        }
+        document.querySelectorAll(".ob-step").forEach((s2) =>
+          s2.classList.toggle("active", +s2.dataset.step === FoxynPC._step)
+        );
+      },
+
+      syncFormFromProfile(pc) {
+        Shell.step = 0; FoxynPC._step = 0;
+        const set = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ""; };
+        set("obCpu", pc.cpuId); set("obGpu", pc.gpuId); set("obRam", pc.ram); set("obStorage", pc.storage); set("obRes", pc.res);
+        Shell.selGames = new Set(pc.games || []);
+        document.querySelectorAll("#obGames .chip").forEach((c) => c.classList.toggle("on", Shell.selGames.has(c.dataset.id)));
+        Shell.updateDots();
+      },
+
+      collect() {
+        return {
+          cpuId: document.getElementById("obCpu").value,
+          gpuId: document.getElementById("obGpu").value,
+          ram: +document.getElementById("obRam").value || null,
+          storage: document.getElementById("obStorage").value,
+          res: document.getElementById("obRes").value,
+          games: [...Shell.selGames]
+        };
+      }
+    };
+
+    FoxynPC._step = 0;
+    FoxynPC.nextStep = function () {
+      const maxSteps = Shell.steps - 1;
+      Shell.collect(); // valida leitura parciais
+      if (FoxynPC._step < maxSteps) { FoxynPC._step++; Shell.updateDots(); }
+      else this.finish();
+    };
+    FoxynPC.prevStep = function () {
+      if (FoxynPC._step > 0) { FoxynPC._step--; Shell.updateDots(); }
+    };
+    FoxynPC.finish = function () {
+      const pc = Shell.collect();
+      if (!pc.cpuId || !pc.gpuId) { FOXYN.toast("Selecione ao menos CPU e GPU.", "error"); return; }
+      FoxynPC.pc = pc;
+      FoxynPC.showProfile();
+    };
+
+    document.addEventListener("DOMContentLoaded", () => FoxynPC.init());
   </script>
 </body>
 </html>

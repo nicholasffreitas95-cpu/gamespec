@@ -66,16 +66,65 @@
     </div>
   </div>
 
+  <!-- Limite atingido -->
+  <div id="foxLimitReason" class="fox-overlay-modal hidden">
+    <div class="fox-modal" style="max-width:480px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🚀</div>
+        <h3>Você chegou ao limite do seu plano 🚀</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)" id="limitText">
+          Você utilizou <strong id="limitUsed">0</strong>/<strong id="limitMax">2</strong> monitoramentos no plano FREE.
+        </p>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">Veja o que você desbloqueia no Essential: monitoramento ilimitado, Radar completo e Buy Score.</p>
+        <a href="planos.html" class="fox-btn fox-btn--primary fox-btn--block">Migrar para Essential</a>
+        <button class="fox-btn fox-btn--ghost fox-btn--block" onclick="document.getElementById('foxLimitReason').classList.add('hidden')">Agora não</button>
+      </div>
+    </div>
+  </div>
+
+
   <script src="js/foxyn.js"></script>
   <script src="js/foxyn-data.js"></script>
+  <script src="js/foxyn-core.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       if (!FOXYN.gate()) return;
 
       const grid = document.getElementById("foxRadar");
       const empty = document.getElementById("foxRadarEmpty");
-      const monitored = FOXYN.get("monitored", []);
       const artByBrand = { NVIDIA: "🎮", AMD: "⚙️", Intel: "🧠", Kingston: "💾", Samsung: "⚡" };
+      const user = FOXYN.currentUser();
+      let monitored = FoxynCore.monitored(user);
+
+      // Explica os fatores do Buy Score de forma honesta
+      function whyScore(p, score) {
+        const discount = ((p.prev - p.price) / p.prev) * 100;
+        const lines = [];
+        if (p.trend < 0) lines.push(`Preço em queda recente (${Math.abs(p.trend).toFixed(1)}% na tendência).`);
+        else lines.push(`Preço em alta recente (${p.trend.toFixed(1)}% na tendência).`);
+        lines.push((p.prev > p.price) ? `Desconto de ${discount.toFixed(0)}% frente ao preço anterior divulgado.` : "Sem desconto frente ao preço anterior divulgado.");
+        lines.push(p.stock ? "Disponível em estoque (fator positivo)." : "Sem estoque disponível (fator negativo).");
+        return lines;
+      }
+
+      // Análise "Comprar ou esperar?" (sem prometer futuro)
+      function buyWait(p, score) {
+        if (score >= 75) return { tag: "COMPRE", color: "var(--fox-success)", text: `O preço atual está ${Math.abs(p.trend).toFixed(1)}% abaixo do período recente. Comprar agora é razoável — mas nenhum preço futuro é garantido.` };
+        if (score >= 60) return { tag: "BOA OPORTUNIDADE", color: "var(--fox-orange)", text: "Bom momento, com desconto moderado frente ao histórico recente. Avalie a sua necessidade." };
+        if (score >= 40) return { tag: "AGUARDE", color: "var(--fox-muted)", text: "O preço está próximo dos valores recentes. Não há urgência — aguardar pode ser interessante, sem garantia de queda." };
+        return { tag: "PREÇO ALTO", color: "var(--fox-danger)", text: "O preço está acima do histórico recente. Melhor aguardar uma oferta melhor." };
+      }
+
+      function showLimitModal() {
+        const reason = document.getElementById("foxLimitReason");
+        if (!reason) return;
+        const v = FoxynCore.verify("price_monitor_limit");
+        const usedEl = document.getElementById("limitUsed");
+        const maxEl = document.getElementById("limitMax");
+        if (usedEl) usedEl.textContent = v.used || 0;
+        if (maxEl) maxEl.textContent = v.limit ?? "—";
+        reason.classList.remove("hidden");
+      }
 
       function render() {
         grid.innerHTML = "";
@@ -84,7 +133,9 @@
         FOXYN_PRODUCTS.forEach((p) => {
           const score = foxynBuyScore(p);
           const [cls, verdict] = FOXYN.scoreColor(score);
-          const isMon = monitored.includes(p.id);
+          const isMon = monitored.some((m) => m.productId === p.id);
+          const bw = buyWait(p, score);
+          const why = whyScore(p, score);
           const card = document.createElement("div");
           card.className = "product-card";
           card.innerHTML = `
@@ -116,6 +167,13 @@
                   </div>
                 </div>
               </div>
+              <div class="fox-why" style="margin-bottom:10px">
+                <strong>${bw.tag}</strong> — ${bw.text}
+              </div>
+              <button class="fox-btn fox-btn--ghost fox-btn--block" style="margin-bottom:8px" data-why="${p.id}">🧠 Por que essa nota?</button>
+              <div class="fox-why" id="why-${p.id}" hidden>
+                ${why.map((l) => "• " + l).join("<br>")}
+              </div>
               <button class="monitor-btn ${isMon ? "is-monitored" : ""}" data-id="${p.id}">
                 ${isMon ? "✓ Monitorando" : "🔔 MONITORAR"}
               </button>
@@ -123,19 +181,44 @@
           grid.appendChild(card);
         });
 
+        // Por que essa nota
+        grid.querySelectorAll("[data-why]").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const box = document.getElementById("why-" + btn.dataset.why);
+            box.hidden = !box.hidden;
+          })
+        );
+
+        // Monitorar / desmonitorar
         grid.querySelectorAll(".monitor-btn").forEach((btn) =>
           btn.addEventListener("click", () => {
             const id = btn.dataset.id;
-            const i = monitored.indexOf(id);
-            if (i >= 0) { monitored.splice(i, 1); FOXYN.toast("Produto removido do radar"); }
-            else {
-              monitored.push(id);
+            const idx = monitored.findIndex((m) => m.productId === id);
+            if (idx >= 0) {
+              monitored.splice(idx, 1);
+              FoxynCore.removeMonitor(user, id);
+              FOXYN.toast("Produto removido do radar");
+            } else {
+              const res = FoxynCore.addMonitor(user, id, null);
+              if (!res.ok) {
+                if (res.reason === "auth") { FOXYN.gate(); return; }
+                if (res.reason === "limit") {
+                  showLimitModal();
+                  trackLimit();
+                  return;
+                }
+                if (res.msg) { FOXYN.toast(res.msg, "error"); return; }
+              }
+              monitored = FoxynCore.monitored(user);
               FOXYN.toast("🦊 Comecei a monitorar este preço. Vou te avisar quando cair.", "success");
             }
-            FOXYN.set("monitored", monitored);
             render();
           })
         );
+      }
+
+      function trackLimit() {
+        try { FoxynCore.track(user, "limite_atingido", { feature: "price_monitor_limit" }); } catch (e) {}
       }
 
       render();

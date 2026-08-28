@@ -635,3 +635,64 @@ optgroup { color: var(--fox-muted); font-style: normal; font-weight: 600; }
   .fox-login-form { width: 100%; min-height: 100vh; }
 }
 @media (max-width: 460px) { .fox-login-form { padding: 24px 18px; } }
+
+/* ============================================================
+   FORMS, CHECKOUT, ASSINATURA, LIMITE, ONBOARDING
+   ============================================================ */
+
+.fox-field { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+.fox-field label { font-size:var(--fox-fs-sm); color:var(--fox-muted); font-weight:600; }
+.fox-field input, .fox-field select, .fox-input {
+  padding:12px 14px; background:var(--fox-surface-2); color:var(--fox-text);
+  border:1px solid var(--fox-border); border-radius:var(--fox-radius-md);
+  font-family:var(--fox-font-ui); font-size:var(--fox-fs-md); outline:none; transition:border-color var(--fox-t-fast), box-shadow var(--fox-t-fast);
+}
+.fox-field input:focus, .fox-field select:focus, .fox-input:focus { border-color:var(--fox-orange); box-shadow:0 0 0 3px var(--fox-orange-soft); }
+.fox-field .hint { font-size:var(--fox-fs-xs); color:var(--fox-muted-2); }
+
+.fox-check-row { display:flex; align-items:flex-start; gap:10px; font-size:var(--fox-fs-sm); color:var(--fox-muted); margin-bottom:14px; }
+.fox-check-row input { width:18px; height:18px; accent-color:var(--fox-orange); margin-top:1px; }
+
+.fox-checkout { display:grid; grid-template-columns:1fr 340px; gap:18px; }
+.fox-checkout .summary { background:var(--fox-surface); border:1px solid var(--fox-border); border-radius:var(--fox-radius-lg); padding:20px; height:fit-content; }
+.sum-row { display:flex; justify-content:space-between; padding:8px 0; font-size:var(--fox-fs-sm); color:var(--fox-muted); border-bottom:1px solid var(--fox-border); }
+.sum-row:last-child { border-bottom:none; color:var(--fox-text); font-weight:700; font-size:var(--fox-fs-md); }
+.sum-row .total-blue { color:var(--fox-orange); font-family:var(--fox-font-display); font-weight:800; font-size:var(--fox-fs-xl); }
+
+/* Botões de forma de pagamento */
+.pay-methods { display:flex; gap:10px; margin-bottom:14px; }
+.pay-methods label { flex:1; cursor:pointer; }
+.pay-methods input { position:absolute; opacity:0; }
+.pay-methods span { display:block; text-align:center; padding:12px; background:var(--fox-surface-2); border:1px solid var(--fox-border); border-radius:var(--fox-radius-md); font-weight:600; font-size:var(--fox-fs-sm); transition:all var(--fox-t-fast); }
+.pay-methods input:checked + span { border-color:var(--fox-orange); background:var(--fox-orange-soft); color:var(--fox-orange); }
+
+.fox-form-msg { font-size:var(--fox-fs-sm); min-height:20px; margin-top:8px; }
+.fox-form-msg.error { color:var(--fox-danger); }
+.fox-form-msg.success { color:var(--fox-success); }
+
+/* Assinatura atual */
+.sub-plan { display:flex; align-items:center; gap:16px; padding:18px; background:var(--fox-surface-2); border:1px solid var(--fox-border); border-radius:var(--fox-radius-lg); margin-bottom:18px; }
+.sub-plan .big-emoji { font-size:2.4rem; }
+
+/* Componente de barra de uso vs limite */
+.limit-bar { margin-top:14px; }
+.limit-bar .top { display:flex; justify-content:space-between; font-size:var(--fox-fs-xs); color:var(--fox-muted); margin-bottom:6px; }
+
+/* Onboarding stepper */
+.ob-step { display:none; }
+.ob-step.active { display:block; animation:foxFadeIn var(--fox-t-med); }
+.ob-dots { display:flex; gap:8px; margin:16px 0; }
+.ob-dots .d { width:8px; height:8px; border-radius:50%; background:var(--fox-border-strong); transition:all var(--fox-t-fast); }
+.ob-dots .d.on { background:var(--fox-orange); width:22px; border-radius:var(--fox-radius-pill); }
+
+/* Explicação "por quê" */
+.fox-why { font-size:var(--fox-fs-sm); color:var(--fox-muted); background:var(--fox-surface-2); border-left:3px solid var(--fox-orange); border-radius:var(--fox-radius-sm); padding:10px 14px; margin-top:10px; line-height:1.55; }
+.fox-diagnose { margin-top:6px; }
+.diag-row { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--fox-border); }
+.diag-row:last-child { border-bottom:none; }
+.diag-ico { font-size:1.4rem; }
+.diag-body { flex:1; }
+.diag-body .t { font-weight:700; }
+.diag-body .m { font-size:var(--fox-fs-sm); color:var(--fox-muted); margin-top:3px; }
+
+@keyframes foxFadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:none;} }

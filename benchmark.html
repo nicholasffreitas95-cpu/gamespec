@@ -33,21 +33,32 @@
     <div class="fox-card" style="margin-bottom:18px">
       <h3 class="fox-card-header">Selecione um jogo</h3>
       <div class="bench-game-tabs" id="foxBenchGames"></div>
+      <div class="limit-bar">
+        <div class="top"><span>Benchmarks neste ciclo (mês)</span><span id="bmLimit">—</span></div>
+        <div class="fox-progress"><div class="fill" id="bmLimitFill" style="width:0%"></div></div>
+      </div>
+      <button class="fox-btn fox-btn--primary" id="benchRunBtn" style="margin-top:14px">▶ Executar benchmark</button>
     </div>
 
     <!-- Métricas -->
-    <div class="bench-row" id="foxBenchStats">
-      <div class="bench-stat"><div class="lbl">FPS médio</div><div class="val" id="mFps">78</div></div>
-      <div class="bench-stat"><div class="lbl">1% Low</div><div class="val" id="mLow">61</div></div>
-      <div class="bench-stat"><div class="lbl">Frame Time</div><div class="val" id="mFrame">12,8ms</div></div>
-      <div class="bench-stat"><div class="lbl">Temp CPU</div><div class="val" id="mTempCpu">62°</div></div>
-      <div class="bench-stat"><div class="lbl">Temp GPU</div><div class="val" id="mTempGpu">68°</div></div>
+    <div class="bench-row" id="foxBenchStats" hidden>
+      <div class="bench-stat"><div class="lbl">FPS médio</div><div class="val" id="mFps">—</div></div>
+      <div class="bench-stat"><div class="lbl">1% Low</div><div class="val" id="mLow">—</div></div>
+      <div class="bench-stat"><div class="lbl">Frame Time</div><div class="val" id="mFrame">—</div></div>
+      <div class="bench-stat"><div class="lbl">Temp CPU</div><div class="val" id="mTempCpu">—</div></div>
+      <div class="bench-stat"><div class="lbl">Temp GPU</div><div class="val" id="mTempGpu">—</div></div>
     </div>
 
     <!-- Gráfico de linha / área -->
-    <div class="fox-card" style="margin-bottom:18px">
-      <h3 class="fox-card-header">FPS ao longo do tempo <span class="fox-badge fox-badge--perf">⚡</span></h3>
+    <div class="fox-card" id="benchChartCard" style="margin-bottom:18px" hidden>
+      <h3 class="fox-card-header">FPS ao longo do tempo <span class="fox-badge fox-badge--perf">SIMULAÇÃO</span></h3>
       <div class="bench-chart" id="foxChart"></div>
+      <div class="fox-why" style="margin-top:12px">
+        <strong>Resultado simulado para demonstração.</strong> Este ambiente estático não consegue medir o seu
+        hardware real. Para obter dados verdadeiros, o FOXYN precisaria de um <strong>agente/app local</strong>
+        (contrato documentado) que coleta telemetria e envia para o backend. Sem essa integração, nenhum número
+        aqui é apresentado como medição real.
+      </div>
     </div>
 
     <!-- Uso CPU/GPU -->
@@ -74,10 +85,27 @@
     </div>
   </div>
 
+  <!-- Limite atingido -->
+  <div id="foxBenchLimit" class="fox-overlay-modal hidden">
+    <div class="fox-modal" style="max-width:480px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+        <div class="fox-mascot fox-mascot--lg">🚀</div>
+        <h3>Você chegou ao limite do seu plano 🚀</h3>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">
+          Você utilizou <strong id="benchUsed">0</strong>/<strong id="benchMax">3</strong> benchmarks neste mês no plano FREE.
+        </p>
+        <p class="fox-muted" style="font-size:var(--fox-fs-sm)">No Essential os benchmarks são ilimitados, com histórico e gráficos completos.</p>
+        <a href="planos.html" class="fox-btn fox-btn--primary fox-btn--block">Migrar para Essential</a>
+        <button class="fox-btn fox-btn--ghost fox-btn--block" onclick="document.getElementById('foxBenchLimit').classList.add('hidden')">Agora não</button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/foxyn.js"></script>
   <script src="js/foxyn-data.js"></script>
+  <script src="js/foxyn-core.js"></script>
   <script>
-    // Gera dados de FPS por frame (demo)
+    // Gera dados de FPS por frame (demo — NÃO é medição real)
     function fpsSeries(base, low) {
       const n = 40, out = [];
       let v = base;
@@ -86,6 +114,14 @@
         out.push(Math.round(v));
       }
       return out;
+    }
+
+    // Ponto de integração para agente local real (arquitetura).
+    // Em produção, um app/agente local coletaria telemetria real (FPS, 1% low,
+    // frame time, temperatura, uso CPU/GPU) e enviaria para o backend.
+    async function runRealBenchmark(game) {
+      // Placeholder: retorna null para indicar que a medição real não está disponível.
+      return null;
     }
 
     function drawChart(canvas, data) {
@@ -114,7 +150,22 @@
       if (!FOXYN.gate()) return;
 
       const tabsEl = document.getElementById("foxBenchGames");
+      const stats = document.getElementById("foxBenchStats");
+      const chartCard = document.getElementById("benchChartCard");
+      const runBtn = document.getElementById("benchRunBtn");
       let current = FOXYN_GAMES[0];
+      let hasRun = false;
+      const user = FOXYN.currentUser();
+
+      function refreshLimit() {
+        const v = FoxynCore.verify("benchmark");
+        document.getElementById("bmLimit").textContent =
+          v.limit === null ? ((v.used||0) + " (ilimitado)") : ((v.used||0) + " / " + v.limit);
+        const pct = v.limit === null ? Math.min(100, (v.used||0) * 8) : Math.min(100, ((v.used||0) / v.limit) * 100);
+        document.getElementById("bmLimitFill").style.width = pct + "%";
+        runBtn.disabled = !v.ok;
+        runBtn.textContent = v.ok ? "▶ Executar benchmark" : "Limite atingido";
+      }
 
       FOXYN_GAMES.forEach((g) => {
         const b = document.createElement("button");
@@ -122,20 +173,19 @@
         b.textContent = g.name;
         b.addEventListener("click", () => {
           current = g;
-          renderBench(g);
           document.querySelectorAll(".bench-game-tab").forEach((x) => x.classList.remove("active"));
           b.classList.add("active");
         });
         tabsEl.appendChild(b);
       });
 
-      function renderBench(game) {
-        const b = foxynBenchmarkGame(game);
-        const fps = game.fps.ultra || 60;
-        const low = Math.round(fps * 0.78);
+      function renderBench(game, results) {
+        const fps = results ? results.average : (game.fps.ultra || 60);
+        const low = results ? results.low1 : Math.round(fps * 0.78);
+        const frame = results ? results.frametime : 1000 / fps;
         document.getElementById("mFps").textContent = fps;
         document.getElementById("mLow").textContent = low;
-        document.getElementById("mFrame").textContent = (1000 / fps).toFixed(1).replace(".", ",") + "ms";
+        document.getElementById("mFrame").textContent = frame.toFixed(1).replace(".", ",") + "ms";
         document.getElementById("mTempCpu").textContent = 62 + "°";
         document.getElementById("mTempGpu").textContent = 68 + "°";
         const gu = 78, cu = 58;
@@ -143,10 +193,41 @@
         document.getElementById("useGpuFill").style.width = gu + "%";
         document.getElementById("mUseCpu").textContent = cu + "%";
         document.getElementById("useCpuFill").style.width = cu + "%";
-        drawChart(document.getElementById("foxChart"), fpsSeries(fps, low));
+        drawChart(document.getElementById("foxChart"), results ? results.series : fpsSeries(fps, low));
+        stats.hidden = false;
+        chartCard.hidden = false;
       }
 
-      renderBench(current);
+      runBtn.addEventListener("click", async () => {
+        const verif = FoxynCore.verify("benchmark");
+        if (!verif.ok) {
+          if (verif.reason === "limit") {
+            document.getElementById("benchUsed").textContent = verif.used || 0;
+            document.getElementById("benchMax").textContent = verif.limit ?? "—";
+            document.getElementById("foxBenchLimit").classList.remove("hidden");
+            return;
+          }
+        }
+        // Tenta agente real; se indisponível, usa demonstração ainda assim marcada como tal.
+        let real = null;
+        try { real = await runRealBenchmark(current); } catch (e) { real = null; }
+
+        const results = real || foxynBenchmarkGame(current);
+        results.series = fpsSeries(results.average, results.low1);
+        results.simulated = !real;
+
+        // Consome limite (só marca uso se desbloqueado)
+        if (!hasRun) {
+          FoxynCore.saveBenchmark(user, current.name, results);
+          hasRun = true;
+        }
+        FoxynCore.track(user, results.simulated ? "benchmark_simulado" : "benchmark_executado", { game: current.name });
+        renderBench(current, results);
+        refreshLimit();
+        FOXYN.toast(results.simulated ? "Benchmark simulado (demo)" : "Benchmark real registrado", results.simulated ? "info" : "success");
+      });
+
+      refreshLimit();
     });
   </script>
 </body>

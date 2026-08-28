@@ -205,6 +205,18 @@ function renderFoxynSidebar(page) {
       : user.plan === "premium" ? "Plano Premium"
       : "Plano Gratuito";
   }
+
+  // Link de administração visível apenas para admins
+  if (user && (user.role === "admin" || (user.username || "").toLowerCase() === "adm1982")) {
+    const nav = document.querySelector("#foxSidebar .fox-nav");
+    if (nav) {
+      const a = document.createElement("a");
+      a.href = "admin.html";
+      a.className = "fox-nav-item" + (page === "admin" ? " active" : "");
+      a.innerHTML = '<span class="fox-nav-icon">🛠️</span> Painel Admin';
+      nav.appendChild(a);
+    }
+  }
 }
 
 // ---------- Inicialização comum ----------
