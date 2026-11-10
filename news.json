@@ -1,7 +1,182 @@
 {
-  "updated": "2026-11-09T21:11:20.979Z",
+  "updated": "2026-11-10T18:21:29.791Z",
   "total": 40,
   "items": [
+    {
+      "title": "AMD usa IA para substituir até 75% da memória RAM por SSDs em servidores",
+      "link": "https://www.adrenaline.com.br/amd/amd-substituir-ram-por-ia/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T17:04:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Por que a memória RAM ficou tão cara? AMD explica o que mudou na indústria",
+      "link": "https://www.adrenaline.com.br/amd/por-que-memoria-ram-ficou-tao-cara/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T17:02:00.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "AMD lança EPYC 9006 com até 256 núcleos e mira a nova era da inteligência artificial",
+      "link": "https://www.adrenaline.com.br/amd/amd-epyc-9006-256-nucleos-inteligencia-artificial/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T17:00:00.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Steam Deck começa a mostrar na loja a média de FPS para jogos no portátil",
+      "link": "https://www.adrenaline.com.br/games/pc-games/steam-deck-comeca-a-mostrar-na-loja-a-media-de-fps-para-jogos-no-portatil/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T16:48:19.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "GTA 6 vai ter alvo de 30 FPS em todos os consoles, confirma Rockstar",
+      "link": "https://www.adrenaline.com.br/games/gta-6-vai-ter-alvo-de-30-fps-em-todos-os-consoles-confirma-rockstar/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T15:37:54.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "ASRock lança nova BIOS para Radeon RX 7900 XTX após atualização inutilizar placas",
+      "link": "https://www.adrenaline.com.br/noticias/asrock-lanca-nova-bios-para-radeon-rx-7900-xtx-apos-atualizacao-inutilizar-placas/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T15:17:15.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "RoboCop, DOOM, Metro e mais jogos em oferta no PC; até 93% de desconto",
+      "link": "https://www.adrenaline.com.br/games/pc-games/robocop-doom-metro-e-mais-jogos-em-oferta-no-pc-ate-93-de-desconto/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T15:00:00.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Novo HD da Seagate usa IA para combinar capacidade de armazenamento e velocidade de SSD",
+      "link": "https://www.adrenaline.com.br/hardware/seagate-firecuda-forge-hd-externo-hibrido-alkemi-ssd-nvme-usb4-8tb-20tb-preco-us-699/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T14:32:15.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Acionistas processam NVIDIA após empresa perder US$ 190 bilhões em valor de mercado",
+      "link": "https://www.adrenaline.com.br/nvidia/nvidia-acao-coletiva-acionistas-jensen-huang-alice-huang-megaspeed-queda-190-bilhoes-congresso-18-novembro/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T14:27:16.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Novo firmware do Switch 2 quebra o jailbreak do console",
+      "link": "https://www.adrenaline.com.br/games/novo-firmware-do-switch-2-quebra-o-jailbreak-do-console/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T14:13:57.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Resident Evil Veronica pode ser adiado para 2028 e DLC de Requiem para o final de 2027",
+      "link": "https://www.adrenaline.com.br/games/resident-evil-veronica-pode-ser-adiado-para-2028-e-dlc-de-requiem-para-o-final-de-2027/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T14:10:39.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "MSI lança monitor gamer QD-OLED de quinta geração da linha MEG X",
+      "link": "https://www.adrenaline.com.br/hardware/msi-lanca-monitor-gamer-qd-oled-de-quinta-geracao-da-linha-meg-x/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T14:02:23.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "PRÉ-VENDA &#124; Coleção PlayStation Prism com controles DualSense e Tampas",
+      "link": "https://www.adrenaline.com.br/games/playstation/pre-venda-colecao-playstation-prism-com-controles-dualsense-e-tampas/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T13:26:04.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Patente da Microsoft propõe pagar jogadores para treinar IA em suas GPUs",
+      "link": "https://www.adrenaline.com.br/microsoft/patente-da-microsoft-propoe-pagar-jogadores-para-treinar-ia-em-suas-gpus/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T13:19:27.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Nintendo Switch ganha update que adiciona presentes ao eShop",
+      "link": "https://www.adrenaline.com.br/games/nintendo-switch-ganha-update-que-adiciona-presentes-ao-eshop/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T12:19:57.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Estreia de GTA 6 pode render até R$ 19 bilhões para a Take-Two Interactive",
+      "link": "https://www.adrenaline.com.br/games/estreia-de-gta-6-pode-render-ate-r-19-bilhoes-para-a-take-two-interactive/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T11:04:43.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Mini PCs com AMD Ryzen AI Halo chegam a 192 GB de memória para rodar modelos de IA",
+      "link": "https://www.adrenaline.com.br/amd/mini-pcs-com-amd-ryzen-ai-halo-chegam-a-192-gb-de-memoria-para-rodar-modelos-de-ia/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T01:34:18.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Chip de IA esquenta tão pouco que até manteiga serve como dissipador em teste inusitado",
+      "link": "https://www.adrenaline.com.br/ia/chip-de-ia-esquenta-tao-pouco-que-ate-manteiga-serve-como-dissipador-em-teste-inusitado/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T01:17:35.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Reviver clássicos é a melhor estratégia para manter grandes jogos relevantes?",
+      "link": "https://www.adrenaline.com.br/artigos/reviver-classicos-e-a-melhor-estrategia-para-manter-grandes-jogos-relevantes/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T01:00:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "DroidDeck leva emulação de jogos de PC para celulares Samsung com Exynos",
+      "link": "https://www.adrenaline.com.br/games/droiddeck-leva-emulacao-de-jogos-de-pc-para-celulares-samsung-com-exynos/",
+      "source": "Adrenaline",
+      "date": "2026-11-10T00:56:22.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Mods gratuitos: o trabalho que existe por trás de cada criação",
+      "link": "https://www.adrenaline.com.br/artigos/mods-gratuitos-o-trabalho-que-existe-por-tras-de-cada-criacao/",
+      "source": "Adrenaline",
+      "date": "2026-11-09T22:30:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Microsoft testa novo Editor de Registro para o Windows 11",
+      "link": "https://www.adrenaline.com.br/microsoft/windows/microsoft-testa-novo-editor-de-registro-para-o-windows-11/",
+      "source": "Adrenaline",
+      "date": "2026-11-09T21:10:12.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Jogos de PlayStation por menos de R$ 30 em oferta de Black Friday",
+      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-playstation-por-menos-de-r-30-em-oferta-de-black-friday-2/",
+      "source": "Adrenaline",
+      "date": "2026-11-09T21:00:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Colorful lança base para resfriamento líquido que leva seu notebook com RTX 5060 para 210W",
+      "link": "https://www.adrenaline.com.br/notebook/colorful-lanca-base-para-resfriamento-liquido-que-leva-seu-notebook-com-rtx-5060-para-210w/",
+      "source": "Adrenaline",
+      "date": "2026-11-09T20:51:44.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Nintendo quer usar o Switch 2 para entregar novas maneiras de jogar",
+      "link": "https://www.adrenaline.com.br/games/nintendo-quer-usar-o-switch-2-para-entregar-novas-maneiras-de-jogar/",
+      "source": "Adrenaline",
+      "date": "2026-11-09T20:32:23.000Z",
+      "tag": "🚀 Lançamentos"
+    },
     {
       "title": "AMDLSS5 2.0 promete levar DLSS 5 para Radeon com até 64% mais FPS que outros mods",
       "link": "https://www.adrenaline.com.br/amd/amdlss5-2-0-promete-levar-dlss-5-para-radeon-com-ate-64-mais-fps-que-outros-mods/",
@@ -106,181 +281,6 @@
       "source": "Adrenaline",
       "date": "2026-11-09T14:02:06.000Z",
       "tag": "📰 Mercado"
-    },
-    {
-      "title": "PRÉ-VENDA &#124; Metroid Ravenous em mídia física para Nintendo Switch 2",
-      "link": "https://www.adrenaline.com.br/games/nintendo/pre-venda-metroid-ravenous-em-midia-fisica-para-nintendo-switch-2/",
-      "source": "Adrenaline",
-      "date": "2026-11-09T13:33:26.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Bug no driver para GPUs AMD causa degradação do SSD, fazendo gravações constantes",
-      "link": "https://www.adrenaline.com.br/amd/bug-no-driver-para-gpus-amd-causa-degradacao-do-ssd-fazendo-gravacoes-constantes/",
-      "source": "Adrenaline",
-      "date": "2026-11-09T12:53:40.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "GTA 6 deve chegar logo ao PC para evitar vitória da IA",
-      "link": "https://www.adrenaline.com.br/games/gta-6-deve-chegar-logo-ao-pc-para-evitar-vitoria-da-ia/",
-      "source": "Adrenaline",
-      "date": "2026-11-09T11:45:12.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "CEO da NVIDIA admite relacionamento extraconjugal com suposta espiã chinesa",
-      "link": "https://www.adrenaline.com.br/nvidia/ceo-nvidia-espionagem-china/",
-      "source": "Adrenaline",
-      "date": "2026-11-09T01:36:32.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos baratos de PC em nova promoção com até 95% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-baratos-de-pc-em-nova-promocao-com-ate-95-de-desconto/",
-      "source": "Adrenaline",
-      "date": "2026-11-08T20:00:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Huawei lança o Qingyun HM650, primeiro PC completo &#8220;totalmente chinês&#8221;",
-      "link": "https://www.adrenaline.com.br/hardware/huawei-lanca-o-qingyun-hm650-primeiro-pc-completo-totalmente-chines/",
-      "source": "Adrenaline",
-      "date": "2026-11-08T18:48:50.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Sony adia speakers Pulse Elevate do PlayStation, que ficam sem data de estreia",
-      "link": "https://www.adrenaline.com.br/perifericos/sony-adia-speakers-pulse-elevate-do-playstation-que-ficam-sem-data-de-estreia/",
-      "source": "Adrenaline",
-      "date": "2026-11-08T18:06:47.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Assassin&#8217;s Creed vai para a Roma Antiga com novo jogo codinome Mars, diz insider",
-      "link": "https://www.adrenaline.com.br/games/assassins-creed-vai-para-a-roma-antiga-com-novo-jogo-codinome-mars-diz-insider/",
-      "source": "Adrenaline",
-      "date": "2026-11-08T17:03:20.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos de PlayStation por menos de R$ 25 em oferta de Black Friday",
-      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-playstation-por-menos-de-r-25-em-oferta-de-black-friday/",
-      "source": "Adrenaline",
-      "date": "2026-11-08T14:22:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Launcher da Epic Games terá versão oficial para o SteamOS",
-      "link": "https://www.adrenaline.com.br/games/pc-games/launcher-da-epic-games-tera-versao-oficial-para-o-steamos/",
-      "source": "Adrenaline",
-      "date": "2026-11-08T14:08:17.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "CPUs Intel Razor Lake-S para desktop podem chegar em 2028 e compatíveis com LGA-1954",
-      "link": "https://www.adrenaline.com.br/intel/cpus-intel-razor-lake-s-para-desktop-podem-chegar-em-2028-e-compativeis-com-lga-1954/",
-      "source": "Adrenaline",
-      "date": "2026-11-08T12:58:03.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos de PC em oferta limitada com até 95% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-limitada-com-ate-95-de-desconto-8/",
-      "source": "Adrenaline",
-      "date": "2026-11-07T18:00:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Demos de jogos poderão incluir vozes de atores do sindicato SAG-AFTRA em novo acordo",
-      "link": "https://www.adrenaline.com.br/games/demos-de-jogos-poderao-incluir-vozes-de-atores-do-sindicato-sag-aftra-em-novo-acordo/",
-      "source": "Adrenaline",
-      "date": "2026-11-07T15:09:47.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos de PlayStation por menos de R$ 20 em oferta de Black Friday",
-      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-playstation-por-menos-de-r-20-em-oferta-de-black-friday/",
-      "source": "Adrenaline",
-      "date": "2026-11-07T14:00:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Launcher nos portáteis Ayaneo recebe atualização e vira um &#8220;museu de bolso&#8221;",
-      "link": "https://www.adrenaline.com.br/mobile/launcher-nos-portateis-ayaneo-recebe-atualizacao-e-vira-um-museu-de-bolso/",
-      "source": "Adrenaline",
-      "date": "2026-11-07T13:43:14.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "CPU-Z registra redução em sistemas com 32GB e 64GB pela primeira vez",
-      "link": "https://www.adrenaline.com.br/hardware/cpu-z-registra-reducao-em-sistemas-com-32gb-e-64gb-pela-primeira-vez/",
-      "source": "Adrenaline",
-      "date": "2026-11-07T12:59:37.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Microsoft corrige falha grave no Paint do Windows 11, mas atualização exige atenção",
-      "link": "https://www.adrenaline.com.br/microsoft/windows/microsoft-corrige-falha-grave-no-paint-do-windows-11-mas-atualizacao-exige-atencao/",
-      "source": "Adrenaline",
-      "date": "2026-11-07T00:54:45.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Path of Exile 2 anuncia o Sombra como nova classe para o lançamento na versão 1.0 em 11 de dezembro",
-      "link": "https://www.adrenaline.com.br/games/path-of-exile-2-anuncia-o-sombra-como-nova-classe-para-o-lancamento-na-versao-1-0-em-11-de-dezembro/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T23:13:33.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos de PC em oferta limitada com até 90% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-limitada-com-ate-90-de-desconto-6/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T23:00:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "LANÇAMENTOS DA SEMANA &#124; Shrek 2, Warhammer Survivors e mais jogos",
-      "link": "https://www.adrenaline.com.br/games/lancamentos-da-semana-shrek-2-warhammer-survivors-e-mais-jogos/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T21:13:00.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "A RTX 5070 é mesmo a que a galera tá comprando?",
-      "link": "https://www.adrenaline.com.br/noticias/a-rtx-5070-e-mesmo-a-que-a-galera-ta-comprando/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T21:12:10.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos de PlayStation por menos de R$ 15 em oferta de Black Friday",
-      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-playstation-por-menos-de-r-15-em-oferta-de-black-friday/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T21:05:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "11.11 na GVGMall: Windows 11 Pro por R$ 141 e Google AI Gemini por a partir de R$ 68",
-      "link": "https://www.adrenaline.com.br/microsoft/windows-11-pro-por-apenas-r-141-na-oferta-de-11-11-da-gvgmall/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T21:00:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Square Enix vai focar em jogos originais após Final Fantasy VII Revelation",
-      "link": "https://www.adrenaline.com.br/games/square-enix-vai-focar-em-jogos-originais-apos-final-fantasy-vii-revelation/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T20:20:04.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Mini PC Cubi, da MSI, recebe nova versão mais barata com CPUs Wildcat Lake",
-      "link": "https://www.adrenaline.com.br/intel/mini-pc-cubi-da-msi-recebe-nova-versao-mais-barata-com-cpus-wildcat-lake/",
-      "source": "Adrenaline",
-      "date": "2026-11-06T20:12:18.000Z",
-      "tag": "💰 Preços"
     }
   ]
 }
