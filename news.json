@@ -1,7 +1,168 @@
 {
-  "updated": "2026-11-15T17:29:39.136Z",
-  "total": 40,
+  "updated": "2026-11-16T20:44:02.137Z",
+  "total": 39,
   "items": [
+    {
+      "title": "Mega Man: Dual Override revela novo chefe Cleanser Man, criado por artista brasileiro",
+      "link": "https://www.adrenaline.com.br/games/mega-man-dual-override-revela-novo-chefe-cleanser-man-criado-por-artista-brasileiro/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T19:46:02.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Jogos em oferta na Steam com até 90% de desconto nesta semana",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-em-oferta-na-steam-com-ate-90-de-desconto-nesta-semana-37/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T19:29:15.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Unbound, estúdio de Shinji Mikami, deve lançar seu primeiro game no meio de 2027",
+      "link": "https://www.adrenaline.com.br/games/unbound-estudio-de-shinji-mikami-deve-lancar-seu-primeiro-game-no-meio-de-2027/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T18:59:58.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "GTA 6 transforma NBA 2K27 em Vice City durante evento especial de dois meses",
+      "link": "https://www.adrenaline.com.br/games/gta-6-parceria-nba-2k27/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T17:54:36.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Star Wars: Fate of the Old Republic só terá novidades no início de 2027",
+      "link": "https://www.adrenaline.com.br/games/star-wars-fate-of-the-old-republic-so-tera-novidades-no-inicio-de-2027/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T17:37:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Videogame com bomba dentro explode em loja de eletrônicos em SP",
+      "link": "https://www.adrenaline.com.br/games/videogame-com-bomba-explode-loja-de-eletronicos-santo-andre-empresario-preso-suspeita-concorrencia/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T17:26:54.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Rainbow Six Siege anuncia Operação Vital Signal com reformulação de Doc e mudanças no Ranqueado",
+      "link": "https://www.adrenaline.com.br/games/rainbow-six-siege-operacao-vital-signal/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T17:25:28.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "UFC 6 recebe expansão Pride FC com ringue de cordas, regras clássicas e torneio Grand Prix",
+      "link": "https://www.adrenaline.com.br/games/ufc-6-pride-fc-expansao/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T17:10:34.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Assinatura da PlayStation Plus com até 33% de desconto na Black Friday",
+      "link": "https://www.adrenaline.com.br/games/playstation/assinatura-da-playstation-plus-com-ate-33-de-desconto-na-black-friday/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T16:41:42.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "GameSir revela o controle G7 Pro em duas novas cores para aproveitar o hype de GTA 6",
+      "link": "https://www.adrenaline.com.br/perifericos/gamesir-revela-o-controle-g7-pro-em-duas-novas-cores-para-aproveitar-o-hype-de-gta-6/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T16:20:02.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Falha no Windows 11 permite que hackers obtenham privilégios máximos no sistema",
+      "link": "https://www.adrenaline.com.br/microsoft/windows/windows-11-signdrop-zero-day-clfs-defender-privilegio-system-sem-correcao-microsoft-investiga/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T15:01:38.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Black Friday PlayStation:  jogos em oferta com até 90% de desconto; EA FC 27 por R$ 174,90",
+      "link": "https://www.adrenaline.com.br/games/playstation/black-friday-playstation-jogos-em-oferta-com-ate-90-de-desconto-ea-fc-27-por-r-17490/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T15:01:00.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Intel Razor Lake pode ganhar processador com 12 núcleos de alto desempenho",
+      "link": "https://www.adrenaline.com.br/intel/intel-razor-lake-12-p-cores-bllc-12-0-4-intel-18a-p-coyote-cove-vazamento-jaykihn/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T14:58:47.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Novo Xbox Project Helix vai rodar jogos de PC e usar IA para melhorar gráficos",
+      "link": "https://www.adrenaline.com.br/games/xbox/novo-xbox-project-helix-vai-rodar-jogos-de-pc-e-usar-ia-para-melhorar-graficos/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T14:48:39.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "ASUS anuncia mouse ROG Harpe II Ace Mini, que chega com edição especial Demon1",
+      "link": "https://www.adrenaline.com.br/asus/asus-anuncia-mouse-rog-harpe-ii-ace-mini-que-chega-com-edicao-especial-demon1/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T14:26:27.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Jogos de PC em oferta com até 90% de desconto por tempo limitado",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-com-ate-90-de-desconto-por-tempo-limitado-3/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T14:22:00.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Investidores processam Intel, acusando empresa de esconder quedas nas vendas em PCs",
+      "link": "https://www.adrenaline.com.br/intel/investidores-processam-intel-acusando-empresa-de-esconder-quedas-nas-vendas-em-pcs/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T13:29:13.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Jensen Huang negocia retorno ao cargo de CEO na NVIDIA",
+      "link": "https://www.adrenaline.com.br/nvidia/jensen-huang-negocia-retorno-ao-cargo-de-ceo-na-nvidia/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T12:55:54.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "League of Legends terá grande reformulação em 2027 com Nova Alvorada",
+      "link": "https://www.adrenaline.com.br/games/league-of-legends-nova-alvorada-2027/",
+      "source": "Adrenaline",
+      "date": "2026-11-16T10:50:18.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Jogos de PC em oferta no Esquenta Black Friday Nuuvem; até 91% de desconto",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-no-esquenta-black-friday-nuuvem-ate-91-de-desconto/",
+      "source": "Adrenaline",
+      "date": "2026-11-15T20:37:22.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Investimento da Samsung para aumentar produção de memórias pode chegar em US$ 34 bilhões",
+      "link": "https://www.adrenaline.com.br/samsung/investimento-da-samsung-para-aumentar-producao-de-memorias-pode-chegar-em-us-34-bilhoes/",
+      "source": "Adrenaline",
+      "date": "2026-11-15T18:35:25.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "ASUS lança versão mais barata do ExpertBook A7, com apenas 8GB de memória",
+      "link": "https://www.adrenaline.com.br/notebook/asus-lanca-versao-mais-barata-do-expertbook-a7-com-apenas-8gb-de-memoria/",
+      "source": "Adrenaline",
+      "date": "2026-11-15T18:01:29.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Jogos de RPG para PlayStation em oferta de Black Friday",
+      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-rpg-para-playstation-em-oferta-de-black-friday/",
+      "source": "Adrenaline",
+      "date": "2026-11-15T17:49:00.000Z",
+      "tag": "📰 Mercado"
+    },
     {
       "title": "Galax RTX 5080 HOF Extreme com cristais Swarovski terá lançamento global",
       "link": "https://www.adrenaline.com.br/nvidia/galax-rtx-5080-hof-extreme-com-cristais-swarovski-tera-lancamento-global/",
@@ -43,13 +204,6 @@
       "source": "Adrenaline",
       "date": "2026-11-14T17:33:43.000Z",
       "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos de PC em oferta com até 90% de desconto por tempo limitado",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-com-ate-90-de-desconto-por-tempo-limitado-2/",
-      "source": "Adrenaline",
-      "date": "2026-11-14T17:00:00.000Z",
-      "tag": "💰 Preços"
     },
     {
       "title": "Nintendo 3DS no Switch? Site de Zelda dá esperanças de que isso vai acontecer",
@@ -120,167 +274,6 @@
       "source": "Adrenaline",
       "date": "2026-11-14T11:20:27.000Z",
       "tag": "📰 Mercado"
-    },
-    {
-      "title": "Lexar apresenta o SSD mais fino do mundo com menos de 4 mm de espessura",
-      "link": "https://www.adrenaline.com.br/hardware/lexar-apresenta-o-ssd-mais-fino-do-mundo-com-menos-de-4-mm-de-espessura/",
-      "source": "Adrenaline",
-      "date": "2026-11-14T02:48:03.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Razer lança as cadeiras Razer Soma Pro e Soma Sensa HD Haptics",
-      "link": "https://www.adrenaline.com.br/perifericos/razer-lanca-as-cadeiras-razer-soma-pro-e-soma-sensa-hd-haptics/",
-      "source": "Adrenaline",
-      "date": "2026-11-14T02:28:35.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Códigos King of Fighters: Legend de novembro de 2026: veja lista ativa e como resgatar",
-      "link": "https://www.adrenaline.com.br/games/codigos-king-of-fighters-legend-de-novembro-de-2026-veja-lista-ativa-e-como-resgatar/",
-      "source": "Adrenaline",
-      "date": "2026-11-14T01:54:31.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos na Steam em oferta por menos de R$ 20; até 90% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-na-steam-em-oferta-por-menos-de-r-20-ate-95-de-desconto/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T23:00:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "LANÇAMENTOS DA SEMANA &#124; GTA 6 e mais jogos",
-      "link": "https://www.adrenaline.com.br/games/lancamentos-da-semana-gta-6-e-mais-jogos/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T21:05:00.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos de Luta para PlayStation em oferta de Black Friday",
-      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-luta-para-playstation-em-oferta-de-black-friday/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T21:00:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Mini PC inspirado no Mac Studio chega com 192 GB de RAM e processador AMD Ryzen AI",
-      "link": "https://www.adrenaline.com.br/amd/beelink-gtr9-pro-ryzen-ai-max-495-192-gb-lpddr5x-radeon-8065s-10gbe-preco-us-7399/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T20:12:53.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Caso envolvendo Jensen Huang ganha novo capítulo com suspeita de acesso chinês a chips da NVIDIA",
-      "link": "https://www.adrenaline.com.br/nvidia/alice-huang-longteng-data-center-xangai-chips-nvidia-banidos-garantia-financiamento-aperia-super-micro/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T20:09:44.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos da SEGA em oferta na Nuuvem com até 85% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-da-sega-em-oferta-na-nuuvem-com-ate-85-de-desconto-3/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T20:07:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Conselho da NVIDIA quer atual CEO da ARM como sucessor de Jensen Huang",
-      "link": "https://www.adrenaline.com.br/nvidia/nvidia-conselho-sonda-rene-haas-ceo-arm-sucessor-jensen-huang-financial-times/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T20:06:28.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Intel tem novo Core Ultra 7 260K revelado antes da hora em PCs pré-montados",
-      "link": "https://www.adrenaline.com.br/intel/intel-core-ultra-7-260k-arrow-lake-newegg-abs-pre-montados-5-4-ghz-exclusivo-disponibilidade-limitada/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T20:02:54.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "LG Smart AI Monitor: uma tela para acompanhar o ritmo da sua vida",
-      "link": "https://www.adrenaline.com.br/artigos/lg-smart-ai-monitor-uma-tela-para-acompanhar-o-ritmo-da-sua-vida/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T20:00:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Mapa de GTA 6 presente na edição de colecionador vaza na internet",
-      "link": "https://www.adrenaline.com.br/games/mapa-de-gta-6-presente-na-edicao-de-colecionador-vaza-na-internet/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T19:59:10.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "God of War: Sons of Sparta recebe novo conteúdo e port para o PS4 em 16 de novembro",
-      "link": "https://www.adrenaline.com.br/games/playstation/god-of-war-sons-of-sparta-recebe-novo-conteudo-e-port-para-o-ps4-em-16-de-novembro/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T19:29:27.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Microsoft sofre com apagão do Copilot, Office, Xbox Live, Outlook e mais",
-      "link": "https://www.adrenaline.com.br/microsoft/microsoft-sofre-com-apagao-do-copilot-office-xbox-live-outlook-e-mais/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T19:17:35.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Star Citizen fica de graça pelas próximas duas semanas para promover o evento IAE 2956",
-      "link": "https://www.adrenaline.com.br/games/pc-games/star-citizen-fica-de-graca-pelas-proximas-duas-semanas-para-promover-o-evento-iae-2956/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T18:56:02.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Jogos de PC em oferta com até 95% de desconto por tempo limitado",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-com-ate-95-de-desconto-por-tempo-limitado-4/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T18:31:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "LG UltraGear 34G600: como um monitor UltraWide pode transformar a experiência de jogar e trabalhar",
-      "link": "https://www.adrenaline.com.br/artigos/lg-ultragear-34g600-como-um-monitor-ultrawide-pode-transformar-a-experiencia-de-jogar-e-trabalhar/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T18:00:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "TCL mostra primeiro notebook do mundo com painel OLED de 360Hz",
-      "link": "https://www.adrenaline.com.br/notebook/tcl-mostra-primeiro-notebook-do-mundo-com-painel-oled-de-360hz/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T17:58:15.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Halo: Campaign Evolved vai ganhar modo horda Firefight ainda em 2026",
-      "link": "https://www.adrenaline.com.br/games/halo-campaign-evolved-vai-ganhar-modo-horda-firefight-ainda-em-2026/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T16:50:55.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "PS5 anuncia QSSR em Marvel&#8217;s Spider-Man 2 e revela lista dos próximos jogos",
-      "link": "https://www.adrenaline.com.br/games/playstation/ps5-anuncia-qssr-em-marvels-spider-man-2-e-revela-lista-dos-proximos-jogos/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T16:31:42.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos da CAPCOM em oferta na Nuuvem com até 85% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-da-capcom-em-oferta-na-nuuvem-com-ate-85-de-desconto/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T16:05:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Projeto permite instalar macOS em PCs novamente com tradução de instruções do Apple Silicon",
-      "link": "https://www.adrenaline.com.br/apple/projeto-permite-instalar-macos-em-pcs-novamente-com-traducao-de-instrucoes-do-apple-silicon/",
-      "source": "Adrenaline",
-      "date": "2026-11-13T15:59:15.000Z",
-      "tag": "🚀 Lançamentos"
     }
   ]
 }
