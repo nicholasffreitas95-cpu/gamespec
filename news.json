@@ -1,7 +1,161 @@
 {
-  "updated": "2026-11-17T19:28:20.984Z",
-  "total": 39,
+  "updated": "2026-11-18T19:10:57.092Z",
+  "total": 40,
   "items": [
+    {
+      "title": "HP lança mini PC de apenas 940g com Intel Wildcat Lake",
+      "link": "https://www.adrenaline.com.br/intel/hp-lanca-mini-pc-de-apenas-940g-com-intel-wildcat-lake/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T17:35:14.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "NVIDIA anuncia desktops compactos RTX Spark com superchip N1X e até 128 GB de memória unificada",
+      "link": "https://www.adrenaline.com.br/noticias/nvidia-anuncia-desktops-compactos-rtx-spark-com-superchip-n1x-e-ate-128-gb-de-memoria-unificada/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T17:30:21.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Razer lança mouses DeathAdder e Viper V4 Pro em fibra de carbono e revela seus preços",
+      "link": "https://www.adrenaline.com.br/perifericos/razer-lanca-mouses-deathadder-e-viper-v4-pro-em-fibra-de-carbono-e-revela-seus-precos/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T17:07:17.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Jogos da CAPCOM em oferta na Nuuvem com até 87% de desconto + cupom limitado de 15%",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-da-capcom-em-oferta-na-nuuvem-com-ate-87-de-desconto-cupom-limitado-de-15/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T16:54:02.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Windows 7 recebe suporte a GPUs RTX 50, RX 9000 e Intel Arc graças aos modders",
+      "link": "https://www.adrenaline.com.br/microsoft/windows/windows-7-recebe-suporte-a-gpus-rtx-50-rx-9000-e-intel-arc-gracas-aos-modders/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T16:32:59.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Jogos de PC em oferta especial com até 90% de desconto por tempo limitado",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-especial-com-ate-90-de-desconto-por-tempo-limitado/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T16:08:37.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "GTA 6 redefine a geração atual, decreta Digital Foundry",
+      "link": "https://www.adrenaline.com.br/games/gta-6-redefine-a-geracao-atual-decreta-digital-foundry/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T15:52:40.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Sony pode ter bloqueado streaming alternativo no PS Portal",
+      "link": "https://www.adrenaline.com.br/games/sony-pode-ter-bloqueado-streaming-alternativo-no-ps-portal/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T15:20:21.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "NVIDIA descarta volta de Jensen Huang ao comando da empresa",
+      "link": "https://www.adrenaline.com.br/nvidia/nvidia-descarta-volta-de-jensen-huang-ao-comando-da-empresa/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T14:42:27.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "GTA 6 usa o AMD FSR 4 para rodar no Xbox Series S com Ray Tracing",
+      "link": "https://www.adrenaline.com.br/games/gta-6-usa-o-amd-fsr-4-para-rodar-no-xbox-series-s-com-ray-tracing/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T14:37:11.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Venda de monitores OLED dobrou no Q3 de 2026, em relação a 2025",
+      "link": "https://www.adrenaline.com.br/perifericos/venda-de-monitores-oled-dobrou-no-q3-de-2026-em-relacao-a-2025/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T14:21:35.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "DOOM: The Dark Ages é o primeiro game a suportar FSR 4.1 pela Vulkan",
+      "link": "https://www.adrenaline.com.br/games/pc-games/doom-the-dark-ages-e-o-primeiro-game-a-suportar-fsr-4-1-pela-vulkan/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T13:37:25.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "AMD promete anúncio grande para a CES 2027 com novo teaser",
+      "link": "https://www.adrenaline.com.br/amd/amd-promete-anuncio-grande-para-a-ces-2027-com-novo-teaser/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T13:08:28.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "É o jogo do ano? Confira as notas de GTA 6 pela imprensa mundial",
+      "link": "https://www.adrenaline.com.br/games/e-o-jogo-do-ano-confira-as-notas-de-gta-6-pela-imprensa-mundial/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T11:33:14.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Devolver Digital vai sortear jogo de graça para quem deletar GTA 6",
+      "link": "https://www.adrenaline.com.br/games/devolver-digital-vai-sortear-jogo-de-graca-para-quem-deletar-gta-6/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T10:54:13.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "PlayStation 5 precisa de atualização obrigatória para rodar GTA 6",
+      "link": "https://www.adrenaline.com.br/games/playstation/playstation-5-precisa-de-atualizacao-obrigatoria-para-jogar-gta-6/",
+      "source": "Adrenaline",
+      "date": "2026-11-18T03:37:48.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Jogos de PlayStation em oferta por menos de R$ 15 na Black Friday",
+      "link": "https://www.adrenaline.com.br/noticias/jogos-de-playstation-em-oferta-por-menos-de-r-15-na-black-friday/",
+      "source": "Adrenaline",
+      "date": "2026-11-17T21:00:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "XBOX Game Pass recebe 9 jogos em novembro — veja lista!",
+      "link": "https://www.adrenaline.com.br/games/xbox/xbox-game-pass-recebe-9-jogos-em-novembro-veja-lista/",
+      "source": "Adrenaline",
+      "date": "2026-11-17T20:21:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Nintendo é a publisher com mais indicações ao The Game Awards 2026",
+      "link": "https://www.adrenaline.com.br/games/nintendo-e-a-publisher-com-mais-indicacoes-ao-the-game-awards-2026/",
+      "source": "Adrenaline",
+      "date": "2026-11-17T19:29:59.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Modder cria versão &#8220;HD-2D&#8221; de Pokémon Emerald recompilado no PC",
+      "link": "https://www.adrenaline.com.br/games/pc-games/modder-cria-versao-hd-2d-de-pokemon-emerald-recompilado-no-pc/",
+      "source": "Adrenaline",
+      "date": "2026-11-17T19:07:58.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Jogos de PC em oferta na Black Friday da Epic Games; até 95% de desconto",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-na-black-friday-da-epic-games-ate-95-de-desconto/",
+      "source": "Adrenaline",
+      "date": "2026-11-17T19:00:00.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Jensen Huang pede desculpas e diz que seria uma honra voltar a ser CEO da NVIDIA",
+      "link": "https://www.adrenaline.com.br/nvidia/jensen-huang-pede-desculpas-e-diz-que-seria-uma-honra-voltar-a-ser-ceo-da-nvidia/",
+      "source": "Adrenaline",
+      "date": "2026-11-17T18:56:21.000Z",
+      "tag": "📰 Mercado"
+    },
     {
       "title": "&#8220;Talvez seja hora de encerrar Dragon Quest&#8221;, declara compositor de Chrono Trigger",
       "link": "https://www.adrenaline.com.br/games/talvez-seja-hora-de-encerrar-dragon-quest-declara-compositor-de-chrono-trigger/",
@@ -126,153 +280,6 @@
       "link": "https://www.adrenaline.com.br/games/lancamentos-da-semana-gta-6-e-mais-jogos/",
       "source": "Adrenaline",
       "date": "2026-11-17T02:25:00.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Códigos COD Mobile: veja lista completa de novembro de 2026 e como resgatar",
-      "link": "https://www.adrenaline.com.br/games/codigos-cod-mobile-veja-lista-completa-de-novembro-de-2026-e-como-resgatar/",
-      "source": "Adrenaline",
-      "date": "2026-11-17T01:02:21.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos da CAPCOM em oferta no Nintendo Switch 1 &#038; 2; até 83% de desconto",
-      "link": "https://www.adrenaline.com.br/games/nintendo/jogos-da-capcom-em-oferta-no-nintendo-switch-1-2-ate-83-de-desconto-2/",
-      "source": "Adrenaline",
-      "date": "2026-11-17T00:36:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Brasil entra na lista de países com restrições dos EUA para compra de chips da NVIDIA",
-      "link": "https://www.adrenaline.com.br/nvidia/brasil-entra-na-lista-de-paises-com-restricoes-dos-eua-para-compra-de-chips-da-nvidia/",
-      "source": "Adrenaline",
-      "date": "2026-11-17T00:07:45.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos de PlayStation atingem seus menores preços na Black Friday",
-      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-playstation-atingem-seus-menores-precos-na-black-friday/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T20:28:19.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Mega Man: Dual Override revela novo chefe Cleanser Man, criado por artista brasileiro",
-      "link": "https://www.adrenaline.com.br/games/mega-man-dual-override-revela-novo-chefe-cleanser-man-criado-por-artista-brasileiro/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T19:46:02.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos em oferta na Steam com até 90% de desconto nesta semana",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-em-oferta-na-steam-com-ate-90-de-desconto-nesta-semana-37/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T19:29:15.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Unbound, estúdio de Shinji Mikami, deve lançar seu primeiro game no meio de 2027",
-      "link": "https://www.adrenaline.com.br/games/unbound-estudio-de-shinji-mikami-deve-lancar-seu-primeiro-game-no-meio-de-2027/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T18:59:58.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "GTA 6 transforma NBA 2K27 em Vice City durante evento especial de dois meses",
-      "link": "https://www.adrenaline.com.br/games/gta-6-parceria-nba-2k27/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T17:54:36.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Star Wars: Fate of the Old Republic só terá novidades no início de 2027",
-      "link": "https://www.adrenaline.com.br/games/star-wars-fate-of-the-old-republic-so-tera-novidades-no-inicio-de-2027/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T17:37:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Videogame com bomba dentro explode em loja de eletrônicos em SP",
-      "link": "https://www.adrenaline.com.br/games/videogame-com-bomba-explode-loja-de-eletronicos-santo-andre-empresario-preso-suspeita-concorrencia/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T17:26:54.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Rainbow Six Siege anuncia Operação Vital Signal com reformulação de Doc e mudanças no Ranqueado",
-      "link": "https://www.adrenaline.com.br/games/rainbow-six-siege-operacao-vital-signal/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T17:25:28.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "UFC 6 recebe expansão Pride FC com ringue de cordas, regras clássicas e torneio Grand Prix",
-      "link": "https://www.adrenaline.com.br/games/ufc-6-pride-fc-expansao/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T17:10:34.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Assinatura da PlayStation Plus com até 33% de desconto na Black Friday",
-      "link": "https://www.adrenaline.com.br/games/playstation/assinatura-da-playstation-plus-com-ate-33-de-desconto-na-black-friday/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T16:41:42.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "GameSir revela o controle G7 Pro em duas novas cores para aproveitar o hype de GTA 6",
-      "link": "https://www.adrenaline.com.br/perifericos/gamesir-revela-o-controle-g7-pro-em-duas-novas-cores-para-aproveitar-o-hype-de-gta-6/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T16:20:02.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Falha no Windows 11 permite que hackers obtenham privilégios máximos no sistema",
-      "link": "https://www.adrenaline.com.br/microsoft/windows/windows-11-signdrop-zero-day-clfs-defender-privilegio-system-sem-correcao-microsoft-investiga/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T15:01:38.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Intel Razor Lake pode ganhar processador com 12 núcleos de alto desempenho",
-      "link": "https://www.adrenaline.com.br/intel/intel-razor-lake-12-p-cores-bllc-12-0-4-intel-18a-p-coyote-cove-vazamento-jaykihn/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T14:58:47.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Novo Xbox Project Helix vai rodar jogos de PC e usar IA para melhorar gráficos",
-      "link": "https://www.adrenaline.com.br/games/xbox/novo-xbox-project-helix-vai-rodar-jogos-de-pc-e-usar-ia-para-melhorar-graficos/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T14:48:39.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "ASUS anuncia mouse ROG Harpe II Ace Mini, que chega com edição especial Demon1",
-      "link": "https://www.adrenaline.com.br/asus/asus-anuncia-mouse-rog-harpe-ii-ace-mini-que-chega-com-edicao-especial-demon1/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T14:26:27.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Investidores processam Intel, acusando empresa de esconder quedas nas vendas em PCs",
-      "link": "https://www.adrenaline.com.br/intel/investidores-processam-intel-acusando-empresa-de-esconder-quedas-nas-vendas-em-pcs/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T13:29:13.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jensen Huang negocia retorno ao cargo de CEO na NVIDIA",
-      "link": "https://www.adrenaline.com.br/nvidia/jensen-huang-negocia-retorno-ao-cargo-de-ceo-na-nvidia/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T12:55:54.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "League of Legends terá grande reformulação em 2027 com Nova Alvorada",
-      "link": "https://www.adrenaline.com.br/games/league-of-legends-nova-alvorada-2027/",
-      "source": "Adrenaline",
-      "date": "2026-11-16T10:50:18.000Z",
       "tag": "🚀 Lançamentos"
     }
   ]
