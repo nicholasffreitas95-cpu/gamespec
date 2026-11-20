@@ -1,7 +1,224 @@
 {
-  "updated": "2026-11-19T19:14:34.168Z",
+  "updated": "2026-11-20T18:54:31.177Z",
   "total": 40,
   "items": [
+    {
+      "title": "Novo portátil Mangmi Air X Pro aparece em teaser da empresa",
+      "link": "https://www.adrenaline.com.br/mobile/novo-portatil-mangmi-air-x-pro-aparece-em-teaser-da-empresa/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T18:14:32.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Tuxedo lança notebook Linux com Ryzen AI 9 HX 470 e memórias substituíveis",
+      "link": "https://www.adrenaline.com.br/amd/tuxedo-lanca-notebook-linux-com-ryzen-ai-9-hx-470-e-memorias-substituiveis/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T17:18:15.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Jogos da PlayStation em oferta na Steam com até 75% de desconto",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-da-playstation-em-oferta-na-steam-com-ate-75-de-desconto-2/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T17:07:15.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "GTA 6 já vendeu quase 25 milhões de cópias, estima Sensor Tower",
+      "link": "https://www.adrenaline.com.br/games/gta-6-ja-vendeu-quase-25-milhoes-de-copias-estima-sensor-tower/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T15:58:42.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Assine 1 mês de EA Play por menos de R$ 6 no PlayStation, Xbox e Steam",
+      "link": "https://www.adrenaline.com.br/games/playstation/assine-1-mes-de-ea-play-por-menos-de-r-6-no-playstation-xbox-e-steam/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T15:46:57.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Remake de Star Wars: KOTOR deve ser reapresentado no The Game Awards 2026",
+      "link": "https://www.adrenaline.com.br/games/remake-de-star-wars-kotor-deve-ser-reapresentado-no-the-game-awards-2026/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T15:31:16.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "OpenAI ajuda AMD a melhorar em 14% projeto de sua próxima GPU top de linha",
+      "link": "https://www.adrenaline.com.br/amd/openai-amd-gpu-top-de-linha-ganho-14-por-cento-ppa-modelos-gpt-reescrevem-rtl/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T14:59:12.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Modders acreditam que GTA 6 poderá ser jogado no PC em uma semana",
+      "link": "https://www.adrenaline.com.br/games/modders-acreditam-que-gta-6-podera-ser-jogado-no-pc-em-uma-semana/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T14:49:25.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Falha no Windows 11 permite executar programas sem senha usando recurso de acessibilidade",
+      "link": "https://www.adrenaline.com.br/microsoft/windows-11-fastunlock-falha-narrador-tela-de-bloqueio-executa-programas-sem-senha-bitlocker/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T14:39:40.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Fãs criam port de Monster Hunter Generations Ultimat para PC com suporte a 240 FPS e multiplayer online",
+      "link": "https://www.adrenaline.com.br/games/fas-criam-port-de-monster-hunter-generations-ultimat-para-pc-com-suporte-a-240-fps-e-multiplayer-online/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T14:09:38.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Conheça o Borslon, um mouse articulado que se prende ao dedo indicador",
+      "link": "https://www.adrenaline.com.br/perifericos/conheca-o-borslon-um-mouse-articulado-que-se-prende-ao-dedo-indicador/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T14:04:56.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "GTA 6 teve um time completo dedicado a produzir seus jogos internos",
+      "link": "https://www.adrenaline.com.br/games/gta-6-teve-um-time-completo-dedicado-a-produzir-seus-jogos-internos/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T13:56:28.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "TCL revela o primeiro monitor OLED de 27&#8221; com 1.250Hz de frequência",
+      "link": "https://www.adrenaline.com.br/perifericos/tcl-revela-o-primeiro-monitor-oled-de-27-com-1-250hz-de-frequencia/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T13:30:41.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Placa de vídeo chinesa terá mais VRAM que a RTX 5090, promete fabricante",
+      "link": "https://www.adrenaline.com.br/hardware/placa-de-video-chinesa-tera-mais-vram-que-a-rtx-5090-promete-fabricante/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T13:19:08.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Steam Machine de 512 GB já pode ser comprada sem lista de espera",
+      "link": "https://www.adrenaline.com.br/hardware/steam-machine-de-512-gb-ja-pode-ser-comprada-sem-lista-de-espera/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T13:03:10.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Gigabyte expande linha Ari de garota de anime com novos gabinetes e memória DDR5",
+      "link": "https://www.adrenaline.com.br/hardware/gigabyte-expande-linha-ari-de-garota-de-anime-com-novos-gabinetes-e-memoria-ddr5/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T12:44:37.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "XBOX libera 4 jogos para jogar de graça neste fim de semana – veja lista!",
+      "link": "https://www.adrenaline.com.br/games/xbox/xbox-libera-4-jogos-para-jogar-de-graca-neste-fim-de-semana-veja-lista-11/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T12:30:44.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "GTA 6 pode ser jogado a 60 FPS, mas o método para isso não é simples",
+      "link": "https://www.adrenaline.com.br/games/gta-6-pode-ser-jogado-a-60-fps-mas-o-metodo-para-isso-nao-e-simples/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T12:28:08.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Ubisoft cria novo estúdio focado na inteligência artificial",
+      "link": "https://www.adrenaline.com.br/games/ubisoft-cria-novo-estudio-focado-na-inteligencia-artificial/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T11:50:32.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Cyberleek vaza suposta build de desenvolvedor de GTA 6 para Xbox",
+      "link": "https://www.adrenaline.com.br/games/cyberleek-vaza-suposta-build-de-desenvolvedor-de-gta-6-para-xbox/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T11:16:50.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "GTA 6: conheça todos os apps disponíveis no celular do jogo",
+      "link": "https://www.adrenaline.com.br/games/gta-6-conheca-todos-os-apps-disponiveis-no-celular-do-jogo/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T02:20:26.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Códigos GTA 6: lista completa de cheats e trapaças para PS5 e Xbox",
+      "link": "https://www.adrenaline.com.br/artigos/codigos-gta-6-lista-completa-de-cheats-e-trapacas-para-ps5-e-xbox/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T01:57:19.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "GTA 6: todos os lugares onde você pode saltar de base jump",
+      "link": "https://www.adrenaline.com.br/games/gta-6-todos-os-lugares-onde-voce-pode-saltar-de-base-jump/",
+      "source": "Adrenaline",
+      "date": "2026-11-20T01:49:02.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Jogos de Nintendo Switch 1 &#038; 2 em oferta de Black Friday; até 80% de desconto",
+      "link": "https://www.adrenaline.com.br/games/nintendo/jogos-de-nintendo-switch-1-2-em-oferta-de-black-friday-ate-80-de-desconto/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T23:01:00.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "GTA 6 tem cheats, mas você vai ter que suar para liberá-los",
+      "link": "https://www.adrenaline.com.br/games/gta-6-tem-cheats-mas-voce-vai-ter-que-suar-para-libera-los/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T22:19:35.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Estúdio de MindsEye quer processar sabotadores para pagar dívida milionária",
+      "link": "https://www.adrenaline.com.br/games/estudio-de-mindseye-quer-processar-sabotadores-para-pagar-divida-milionaria/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T21:02:50.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Jogos de PlayStation em oferta por menos de R$ 25 na Black Friday",
+      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-playstation-em-oferta-por-menos-de-r-25-na-black-friday/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T21:00:00.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "8BitDo lança novo controle estilo GameCube para o PC e Nintendo Switch 2",
+      "link": "https://www.adrenaline.com.br/perifericos/8bitdo-lanca-novo-controle-estilo-gamecube-para-o-pc-e-nintendo-switch-2/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T19:57:48.000Z",
+      "tag": "🚀 Lançamentos"
+    },
+    {
+      "title": "Vazamento revela o Legion Go Beam, portátil Lenovo mais barato do que o Legion Go S",
+      "link": "https://www.adrenaline.com.br/mobile/vazamento-revela-o-legion-go-beam-portatil-lenovo-mais-barato-do-que-o-legion-go-s/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T19:13:23.000Z",
+      "tag": "💰 Preços"
+    },
+    {
+      "title": "Qual console roda GTA 6 melhor? Confira comparação entre todas as versões",
+      "link": "https://www.adrenaline.com.br/games/qual-console-roda-gta-6-melhor-confira-comparacao-entre-todas-as-versoes/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T19:12:26.000Z",
+      "tag": "📰 Mercado"
+    },
+    {
+      "title": "Jogos de PC em nova oferta com até 95% de desconto por tempo limitado",
+      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-nova-oferta-com-ate-95-de-desconto-por-tempo-limitado/",
+      "source": "Adrenaline",
+      "date": "2026-11-19T19:06:00.000Z",
+      "tag": "💰 Preços"
+    },
     {
       "title": "Project Hoverview, da Lenovo, vaza revelando uma tela 2D &#8220;flutuante&#8221;",
       "link": "https://www.adrenaline.com.br/hardware/project-hoverview-da-lenovo-vaza-revelando-uma-tela-2d-flutuante/",
@@ -63,223 +280,6 @@
       "link": "https://www.adrenaline.com.br/games/melhores-jogos-android-2026-google-play-best-of-arknights-endfield-warframe-sea-of-stars/",
       "source": "Adrenaline",
       "date": "2026-11-19T14:35:12.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "O PS5 Pro não consegue rodar GTA 6 a 60 quadros, e a Rockstar explica o motivo",
-      "link": "https://www.adrenaline.com.br/games/o-ps5-pro-nao-consegue-rodar-gta-6-a-60-quadros-e-a-rockstar-explica-o-motivo/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T13:53:44.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Módulos de memória DDR6 serão 44% menores do que DDR5, propõe JEDEC",
-      "link": "https://www.adrenaline.com.br/hardware/modulos-de-memoria-ddr6-serao-44-menores-do-que-ddr5-propoe-jedec/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T13:47:59.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "AMD libera driver 26.11.2; veja todas as novidades",
-      "link": "https://www.adrenaline.com.br/amd/amd-libera-driver-26-11-2-veja-todas-as-novidades/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T13:39:46.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Driver NVIDIA também apresenta bug de gravação constante no SSD, relatam usuários",
-      "link": "https://www.adrenaline.com.br/nvidia/driver-nvidia-tambem-apresenta-bug-de-gravacao-constante-no-ssd-relatam-usuarios/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T13:08:55.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Modders conseguem aplicar DLSS 5 em GTA 6 usando Remote Play do PS5",
-      "link": "https://www.adrenaline.com.br/games/modders-conseguem-aplicar-dlss-5-em-gta-6-usando-remote-play-do-ps5/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T13:08:12.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Estúdio de Clair Obscur: Expedition 33 perde membro importante",
-      "link": "https://www.adrenaline.com.br/games/estudio-de-clair-obscur-expedition-33-perde-membro-importante/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T12:50:31.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "11 dicas para começar bem sua aventura na Leonida de GTA 6",
-      "link": "https://www.adrenaline.com.br/games/11-dicas-para-comecar-bem-sua-aventura-na-leonida-de-gta-6/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T11:41:50.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos da UBISOFT em oferta na Steam com até 85% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-da-ubisoft-em-oferta-na-steam-com-ate-85-de-desconto-2/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T02:27:38.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "GTA 6: é possível ter um romance com Mandy no jogo?",
-      "link": "https://www.adrenaline.com.br/games/gta-6-e-possivel-ter-um-romance-com-mandy-no-jogo/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T01:28:38.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "GTA 6: onde encontrar todos os clubes de strip do jogo",
-      "link": "https://www.adrenaline.com.br/games/gta-6-onde-encontrar-todos-os-clubes-de-strip-do-jogo/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T01:00:41.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "GTA 6 bate recorde histórico de streaming com quase 8 milhões de usuários simultâneos",
-      "link": "https://www.adrenaline.com.br/games/gta-6-bate-recorde-historico-de-streaming-com-quase-8-milhoes-de-usuarios-simultaneos/",
-      "source": "Adrenaline",
-      "date": "2026-11-19T00:40:39.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos de PC em oferta por menos de R$ 15 na Black Friday da Epic Games",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-por-menos-de-r-15-na-black-friday-da-epic-games/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T23:14:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "PRÉ-VENDA &#124; DualSense Edição GTA 6 Edição Limitada para PS5",
-      "link": "https://www.adrenaline.com.br/games/playstation/pre-venda-dualsense-edicao-gta-6-edicao-limitada-para-ps5/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T22:23:24.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "NVIDIA suspende envio de chips para a China após saída de Jensen Huang",
-      "link": "https://www.adrenaline.com.br/nvidia/nvidia-suspende-envio-chips-hopper-china-colette-kress-resultados-terceiro-trimestre-fiscal-2027/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T21:09:28.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos de PlayStation em oferta por menos de R$ 20 na Black Friday",
-      "link": "https://www.adrenaline.com.br/games/playstation/jogos-de-playstation-em-oferta-por-menos-de-r-20-na-black-friday/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T21:00:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Como o Xbox Series S consegue rodar GTA VI? Rockstar explica",
-      "link": "https://www.adrenaline.com.br/games/como-xbox-series-s-roda-gta-vi-720p-amd-fsr-4-1080p-ray-tracing-rockstar/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T20:59:45.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "GTA 6 pode reverter queda nas vendas de consoles, afirma Newzoo",
-      "link": "https://www.adrenaline.com.br/games/gta-6-pode-reverter-queda-nas-vendas-de-consoles-afirma-newzoo/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T20:36:42.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Veja comparativo gráfico de GTA 6 no PS5 e PS5 Pro",
-      "link": "https://www.adrenaline.com.br/games/playstation/veja-comparativo-grafico-de-gta-6-no-ps5-e-ps5-pro/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T20:34:20.000Z",
-      "tag": "🔬 Review"
-    },
-    {
-      "title": "Jogos na Steam em oferta por menos de R$ 5; até 90% de desconto",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-na-steam-em-oferta-por-menos-de-r-5-ate-90-de-desconto/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T20:34:18.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "The Legend of Zelda: Ocarina of Time tem recorde de vendas de jogos físicos nos EUA",
-      "link": "https://www.adrenaline.com.br/games/the-legend-of-zelda-ocarina-of-time-tem-recorde-de-vendas-de-jogos-fisicos-nos-eua/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T20:12:57.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Onde comprar GTA 6 mais barato em edição física para PS5 (com cupom!)",
-      "link": "https://www.adrenaline.com.br/games/playstation/onde-comprar-gta-6-mais-barato-em-edicao-fisica-para-ps5/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T19:02:19.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "GTA 6 não permite jogar novamente nenhuma de suas missões",
-      "link": "https://www.adrenaline.com.br/games/gta-6-nao-permite-jogar-novamente-nenhuma-de-suas-missoes/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T19:02:04.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Jogos da KONAMI em oferta no Nintendo Switch 1 &#038; 2; até 50% de desconto",
-      "link": "https://www.adrenaline.com.br/games/nintendo/jogos-da-konami-em-oferta-no-nintendo-switch-1-2-ate-50-de-desconto/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T19:00:00.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Traffic Assault leva perseguições de moto em primeira pessoa ao navegador",
-      "link": "https://www.adrenaline.com.br/publieditorial/traffic-assault-jogo-online-gratis/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T18:15:00.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "HP lança mini PC de apenas 940g com Intel Wildcat Lake",
-      "link": "https://www.adrenaline.com.br/intel/hp-lanca-mini-pc-de-apenas-940g-com-intel-wildcat-lake/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T17:35:14.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "NVIDIA anuncia desktops compactos RTX Spark com superchip N1X e até 128 GB de memória unificada",
-      "link": "https://www.adrenaline.com.br/noticias/nvidia-anuncia-desktops-compactos-rtx-spark-com-superchip-n1x-e-ate-128-gb-de-memoria-unificada/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T17:30:21.000Z",
-      "tag": "🚀 Lançamentos"
-    },
-    {
-      "title": "Razer lança mouses DeathAdder e Viper V4 Pro em fibra de carbono e revela seus preços",
-      "link": "https://www.adrenaline.com.br/perifericos/razer-lanca-mouses-deathadder-e-viper-v4-pro-em-fibra-de-carbono-e-revela-seus-precos/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T17:07:17.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Jogos da CAPCOM em oferta na Nuuvem com até 87% de desconto + cupom limitado de 15%",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-da-capcom-em-oferta-na-nuuvem-com-ate-87-de-desconto-cupom-limitado-de-15/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T16:54:02.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "Windows 7 recebe suporte a GPUs RTX 50, RX 9000 e Intel Arc graças aos modders",
-      "link": "https://www.adrenaline.com.br/microsoft/windows/windows-7-recebe-suporte-a-gpus-rtx-50-rx-9000-e-intel-arc-gracas-aos-modders/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T16:32:59.000Z",
-      "tag": "📰 Mercado"
-    },
-    {
-      "title": "Jogos de PC em oferta especial com até 90% de desconto por tempo limitado",
-      "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-especial-com-ate-90-de-desconto-por-tempo-limitado/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T16:08:37.000Z",
-      "tag": "💰 Preços"
-    },
-    {
-      "title": "GTA 6 redefine a geração atual, decreta Digital Foundry",
-      "link": "https://www.adrenaline.com.br/games/gta-6-redefine-a-geracao-atual-decreta-digital-foundry/",
-      "source": "Adrenaline",
-      "date": "2026-11-18T15:52:40.000Z",
       "tag": "📰 Mercado"
     }
   ]
